@@ -1,6 +1,6 @@
 ---
 name: tanka
-description: Restructure a long document into three layers a reader can stop at: five lines, one page, then everything. Use when asked to summarise, condense, shorten, tighten, trim, cut down, restructure, reorder or sort out a document, email, proposal or report; when asked for a TL;DR, executive summary, top line or key points; when a document is too long, bloated, unwieldy, unreadable or over-communicating, or buries what it is asking for; when asked to write briefly or keep something short; and when drafting internal comms that should come out short in the first place.
+description: Restructure a long document into three layers a reader can stop at (five lines, one page, then everything), and strip the signatures of machine-written prose. Use when asked to summarise, condense, shorten, tighten, trim, cut down, restructure, reorder or sort out a document, email, proposal or report; when asked for a TL;DR, executive summary, top line or key points; when a document is too long, bloated, unwieldy, unreadable or over-communicating, or buries what it is asking for; when asked to write briefly or keep something short; when drafting internal comms that should come out short in the first place; and when a draft reads as AI-generated or robotic, needs its register or tone checked, or needs house style applied before it goes out.
 ---
 
 # Tanka
@@ -25,6 +25,7 @@ Route on what was asked. There are no flags.
 | "sort this out", "make this readable", "restructure this" | **Restructure** | The same content in three layers. Nothing cut |
 | "cut this down", "tighten this", "shorten this" | **Compress** | A rewritten document, summary on top, source linked |
 | "is this too long?", "what's wrong with this?" | **Diagnose** | A findings report. No changes to the document |
+| "does this read as AI?", "make this sound human", "check the tone" | **Register** | A draft with the machine tells removed. Structure untouched |
 | Drafting something new | **Author brief** | A document that comes out short the first time |
 
 **Restructure is the right answer more often than compress.** A document that reads badly is usually well written and badly ordered: its words are carrying content, and the problem is that the reader meets them in the wrong sequence. Compress is for documents that are genuinely padded. Run diagnose when you cannot tell, and let the padding count decide.
@@ -316,21 +317,30 @@ Keep it to a page. Report, in this order:
 
 Change nothing. The point of the mode is that the author does the work.
 
-## Where this stops and other skills start
+## Register: what is left after the cutting
 
-Three skills, three axes. This one stays on its own.
+The passes above decide what a document says and in what order. This one decides what it sounds like, and it runs **last**. Structural cuts change what prose is left to work on, so polishing before cutting wastes the polish.
 
-| Skill | The question it answers |
-|---|---|
-| **tanka** | Does this respect the reader's time and let them act? Structure and density |
-| **human-voice** | Does this read as machine-written? Register |
-| **alex-voice** | Does this sound like the named author? Identity |
+Two failures, one cause. Over-communication and machine register both come from the same trade: the specific thing leaves, and volume arrives to cover the gap. A blockers list followed by "if these are not resolved I cannot proceed" and a paragraph closing with "underscoring its importance to the broader programme" are the same sentence wearing different clothes. Neither tells the reader anything. Both tell them how to feel about what they already read.
 
-Run **tanka first.** Structural cuts change what prose is left to work on, so polishing before cutting wastes the polish.
+So the test is the same test:
 
-This skill holds no vocabulary lists, no punctuation rules and no register guidance. Those belong to the other two, and duplicating them here would put two documents in charge of one decision.
+**Does this sentence tell the reader something they did not know, or does it tell them how to feel about something they already read?**
 
-### Structural bloat is not this skill's problem
+The catalogue lives in **[references/machine-tells.md](references/machine-tells.md)**. Read it when running a register pass, when a draft reads wrong and nobody can name why, or when asked whether something looks machine-written. It covers content tells (inflated significance, participle analysis, vague attribution, speculation dressed as sourcing), language tells (the vocabulary sample, the copulative dodge, negative parallelism, the rule of three), formatting tells, residue tells that are conclusive on sight, and a list of things that are wrongly flagged and are not tells at all.
+
+Six rules are load-bearing enough to sit here rather than behind the pointer:
+
+- **Australian English, British diction.** Colour, organisation, behaviour, recognise. Hold it throughout, including headings, captions and table cells. Code identifiers keep their own language's conventions
+- **Sentence case headings.** Not Title Case
+- **No em dashes.** Comma, colon, full stop or brackets, whichever the sentence wants. Models use them at roughly triple the human rate and always for the same emphatic beat
+- **Plain verbs.** "Is" not "serves as", "has" not "boasts", "used" not "utilised". Compression means fewer words, never stiffer ones
+- **Name the source or own the claim.** "Experts suggest" and "industry reports indicate" are figures with nobody's name on them, and a reader who acts on one cannot check it
+- **Search every draft for residue before it ships.** Chat addressed to the operator, `[Your Name]`, `oaicite`, `utm_source=chatgpt.com`. They cost nothing to check and are unanswerable when found
+
+**Never use this to accuse a colleague of machine-writing.** Tells cluster, no single one proves anything, and detection tools score badly enough that a percentage is not evidence. This is a revision tool for your own drafts and a diagnostic for text you have been asked to assess. Being wrong about it is worse than the thing it detects.
+
+## Structural bloat is a parsing job
 
 Raw email is mostly not writing. Measured on real mail out of Microsoft Graph, one message ran 301 KB of HTML around 120 words of content: markup outweighed text 11 to 1, across 164 nested tables and 1,182 namespace-prefixed classes.
 
@@ -399,13 +409,24 @@ Run over a finished pass:
 11. Any list whose bullets rephrase one point? Keep one
 12. Any workstream reported on with nothing to report? Cut it
 
+**The register**
+
+13. Australian spelling and British diction throughout, including headings and table cells?
+14. Sentence case headings, and no em dashes anywhere?
+15. Every "serves as" back to "is", every "boasts" back to "has"?
+16. Every unnamed authority named, or the claim owned? No "experts suggest"
+17. Search for residue: `oaicite`, `contentReference`, `utm_source=`, `[Your Name]`, `XX-XX`
+18. For a full register pass, work [references/machine-tells.md](references/machine-tells.md) rather than these six lines
+
 **Before it goes**
 
-13. Check every date against today. Flag the ones that have passed
-14. Does the reader know where to get more, and can they reach it?
-15. Read layer 1 cold, without the rest. Can you act on it?
-16. Report both measures: the real ratio, and how far in the ask used to sit
+19. Check every date against today. Flag the ones that have passed
+20. Does the reader know where to get more, and can they reach it?
+21. Read layer 1 cold, without the rest. Can you act on it?
+22. Report both measures: the real ratio, and how far in the ask used to sit
 
 ## Licence
 
-Copyright Alex Hender. Released under **Creative Commons Attribution 4.0 International (CC BY 4.0)**. Copy it, adapt it, redistribute it, including commercially. Credit the source.
+Copyright Alex Hender. Released under **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)**. Copy it, adapt it, redistribute it, including commercially. Credit the source, and licence your version under the same terms.
+
+The share-alike term is inherited. The register material in `references/machine-tells.md` is adapted from Wikipedia's *[Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)*, which is CC BY-SA, so the whole skill carries that licence. Attribution and the contributor history are recorded in that file.

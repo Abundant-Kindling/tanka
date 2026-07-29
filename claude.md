@@ -4,9 +4,11 @@ Ground-truth document for this repo. Read it before starting work, keep it true 
 
 ## What this is
 
-A single Claude Skill, `tanka`, that restructures long documents into three layers a reader can stop at, and compresses the ones that are genuinely padded. Built 29 Jul 2026 in response to RenewCORP internal comms blowing out to five, ten, twenty pages when the load-bearing content would fit in three dot points.
+A single Claude Skill, `tanka`, that restructures long documents into three layers a reader can stop at, compresses the ones that are genuinely padded, and strips the signatures of machine-written prose. Built 29 Jul 2026 in response to RenewCORP internal comms blowing out to five, ten, twenty pages when the load-bearing content would fit in three dot points.
 
-The deliverable is one file: `skills/tanka/SKILL.md`. Everything else in the repo exists to distribute it or to teach it.
+**It is a RenewCORP tool, not a shared one.** See Tanka is RenewCORP-only below.
+
+The deliverable is two files: `skills/tanka/SKILL.md` and `skills/tanka/references/machine-tells.md`. Everything else in the repo exists to distribute it or to teach it.
 
 ## The model
 
@@ -31,8 +33,10 @@ Layer 3 loses nothing, which is what makes the treatment safe on contracts, cost
 | Generic, no per-document-type templates | Considered shapes per document type with their own summary fields. Rejected 29 Jul 2026: more to maintain, and the three questions a summary answers do not change by document type |
 | Fidelity as a hard constraint, running both ways | Losing a figure is the obvious failure. Inventing one to satisfy a rule is the subtler one, and the test documents pushed toward it |
 | Structural bloat declared out of scope | Quoted chains, signature tables, CAUTION banners and meeting boilerplate strip deterministically in code for nothing. Paying a model to read 164 tables of inline styling and then asking it to be concise is the wrong way round |
-| No vocabulary or punctuation rules | `human-voice` owns machine tells, `alex-voice` owns identity. Two documents in charge of one decision is worse than one |
-| Public repo, CC BY 4.0 | Original prose, so no share-alike inherited. Skill content is generic. Public means `/plugin marketplace add` works for anyone. **Currently private, see Visibility below** |
+| ~~No vocabulary or punctuation rules~~ **Reversed 29 Jul 2026** | Originally deferred to `human-voice` and `alex-voice` to avoid two documents owning one decision. Reversed on Alex's call: tanka is RenewCORP-only, and neither of those skills exists for the RC team. A pointer to a skill nobody has is worse than duplication. The register material is now folded in, and `alex-voice` is dropped entirely because identity is a one-person concern and this is a team tool |
+| Register material behind `references/`, not inline | Anthropic documents the SKILL.md body budget as **under 5k tokens** ([Agent Skills overview](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview)), and tanka was already over it. Level 3 resources cost nothing until read. The deeper reason is tanka's own test: a tell catalogue is a look-up surface, and look-up surfaces do not belong next to decision rules competing for the model's attention |
+| Licence moved to CC BY-SA 4.0 | Not a choice. `human-voice` is a derivative of Wikipedia's *Signs of AI writing*, which is CC BY-SA, so folding its substance in inherits share-alike across the whole skill |
+| Private repo | Repo visibility is irrelevant to the RenewCORP zip-upload route. **See Visibility below** |
 | One ground-truth doc | This file. No separate spec under `docs/`, because two overlapping ground-truth documents is the staleness trap |
 
 ## Layout
@@ -41,10 +45,14 @@ Layer 3 loses nothing, which is what makes the treatment safe on contracts, cost
 .claude-plugin/
   plugin.json          version lives here, bump on release
   marketplace.json     single-plugin marketplace, source "./"
-skills/tanka/SKILL.md  the deliverable
+skills/tanka/
+  SKILL.md                      the deliverable, always loaded when the skill fires
+  references/machine-tells.md   register catalogue, loaded only on a register pass
 examples/              two worked pairs, deny-by-default in .gitignore
 build.sh               stages skill + LICENSE into dist/tanka.zip
 ```
+
+`build.sh` already does `cp -r` on the skill directory, so `references/` travels into the zip with no change needed. Verified against the Agent Skills docs 29 Jul 2026: bundled files are Level 3 resources, read on demand via bash, and carry no context cost until accessed.
 
 `dist/` is gitignored. The zip is built on demand, not committed.
 
@@ -111,13 +119,22 @@ Three routes, two live and one blocked:
 2. **Claude.ai personal.** Upload `dist/tanka.zip` at Settings → Capabilities → Skills
 3. **Claude.ai organisation.** An admin uploads the same zip at claude.com → Organisation settings → Skills. Everyone in the org gets it. This is the RenewCORP route, because the plugin route does not propagate across an organisation
 
-Locally, `~/AKDev/dotfiles/skills/tanka` is a **symlink** to `skills/tanka` in this repo, so `deploy-skills.sh` picks it up and pushes it into both `~/.claude-ak/skills/` and `~/.claude-rc/skills/`. The symlink means one canonical copy. `human-voice` is a real directory in dotfiles rather than a symlink, so those two copies can drift: do not repeat that here.
+### Tanka is RenewCORP-only
 
-**Outstanding:** the dotfiles symlink at `~/AKDev/dotfiles/skills/tanka` is untracked in the dotfiles repo. It needs committing from an **AK session**, not from RC. Streams do not cross.
+**Alex's call, 29 Jul 2026.** Tanka is a RenewCORP tool. It is not wanted in AK, and that decision is what made folding `human-voice` in correct rather than duplicative: AK keeps standalone `human-voice`, RC gets one skill that does both, and neither account holds two documents in charge of one decision.
+
+This inverts the previous open item. `~/AKDev/dotfiles/skills/tanka` is a symlink into this repo and `deploy-skills.sh` pushes it into **both** `~/.claude-ak/skills/` and `~/.claude-rc/skills/`, which is now the wrong behaviour: AK should not receive it.
+
+**Outstanding, and it is an AK-session action.** Streams do not cross, so this cannot be done from RC:
+
+- Delete the symlink at `~/AKDev/dotfiles/skills/tanka`, or teach `deploy-skills.sh` a per-account allowlist so a skill can target one account. The allowlist is the better fix, because the same question will arise again
+- Until then, AK carries both tanka and `human-voice`, which overlap on register. Harmless but untidy
+
+Do not solve this by copying the skill into dotfiles as a real directory. `human-voice` is a real directory rather than a symlink and its two copies can drift; do not repeat that here.
 
 ## Conventions
 
-- **No em dashes.** Anywhere. Skill text, README, manifests, examples, commit messages, PR text. Per the 24 Jul 2026 ruling in `alex-voice`
+- **No em dashes.** Anywhere. Skill text, README, manifests, examples, commit messages, PR text. Ruled 24 Jul 2026. The skill now states the rule itself, under Register in `SKILL.md`, so it no longer depends on a skill the RC team does not have
 - Australian English, British diction
 - Dates DD Mon YYYY
 - Sentence case headings
@@ -126,16 +143,29 @@ Locally, `~/AKDev/dotfiles/skills/tanka` is a **symlink** to `skills/tanka` in t
 
 ## Status: shipped
 
-Built, verified, merged and deployed 29 Jul 2026 in a single session. `main` is clean, PRs #1 and #2 merged and their branches deleted. Live in both Claude Code accounts, confirmed resolving by name and loading through the `Skill` tool.
+Built, verified, merged and deployed 29 Jul 2026 in a single session. PRs #1, #2 and #3 merged and their branches deleted. Confirmed resolving by name and loading through the `Skill` tool.
 
-**Size:** 411 lines, 5,039 words. Watch this. The skill is reference material and exempt from its own compress pass, but a brevity skill has an obvious credibility ceiling and it is not far above here. Prefer replacing a section over adding one.
+**Amended the same day:** `human-voice` folded in as a register pass, `alex-voice` references dropped, licence moved to CC BY-SA 4.0, and the skill scoped to RenewCORP only. See the decisions table. That work is on `alex/fold-human-voice-into-tanka`.
+
+**Size, measured 29 Jul 2026 after the register merge:**
+
+| File | Lines | Words | Loaded |
+|---|---|---|---|
+| `SKILL.md` | 432 | 5,539 | Every time the skill fires |
+| `references/machine-tells.md` | 278 | 2,869 | Only on a register pass |
+| Total | 710 | 8,408 | Never all at once |
+
+The merge added 2,869 words of material and only 500 of them to the always-loaded file, because the catalogue went behind a pointer.
+
+**Watch `SKILL.md`.** Anthropic's documented budget for the body is under 5k tokens and it is already past that at roughly 7.5k. The skill is reference material and exempt from its own compress pass, but a brevity skill has a credibility ceiling and this is at it. **Prefer replacing a section over adding one, and prefer `references/` over both.** Anything that is a look-up surface rather than a decision rule belongs behind a pointer.
 
 ### Open items at session close
 
-1. **Upload `dist/tanka.zip` to Organisation settings → Skills.** Rebuild it first. Prerequisites confirmed met: Alex is an org owner, RenewCORP is on Team
-2. **Commit the dotfiles symlink from an AK session.** `~/AKDev/dotfiles/skills/tanka` is untracked, so a fresh machine will not pick the skill up. Cannot be done from an RC session
+1. **Upload `dist/tanka.zip` to Organisation settings → Skills.** Rebuild it first with `./build.sh`. Prerequisites confirmed met: Alex is an org owner, RenewCORP is on Team. **Confirm `references/machine-tells.md` is inside the uploaded zip.** The org upload path is documented only as "must include a SKILL.md file" and says nothing either way about supporting files, so treat the first upload as the verification: fire a register pass in web chat afterwards and check it reads the catalogue
+2. **Remove tanka from AK.** Delete the `~/AKDev/dotfiles/skills/tanka` symlink, or add a per-account allowlist to `deploy-skills.sh`. **AK-session action.** This replaces the old item, which said to commit that symlink, and which the RC-only decision reversed
 3. **`rc-handoff.md` has an entry appended and uncommitted,** same AK-session constraint
 4. **Consider trimming the `delete_repo` scope** from the `gh` token. It was granted for one deletion and persists
+5. **The register pass is unverified against real documents.** Every other rule in this skill earned its place by breaking on a real client document first, per the fourteen defects below. The register material arrived tested only as a standalone skill in AK, not as part of tanka, and the interaction between the two passes has never been run. Next session: put a real machine-drafted internal document through a full pass and see what the seam between structure and register does
 
 **Fourteen defects were found and all fourteen are fixed.** Thirteen came from running the skill against real documents, one from the pre-wrap review. None came from imagination. In order of how much damage they would have done:
 

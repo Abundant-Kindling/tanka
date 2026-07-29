@@ -1,6 +1,6 @@
 # tanka
 
-A Claude Skill that cuts a long document down to what a reader needs, and puts a five-line summary on top they can act on.
+A Claude Skill that cuts a long document down to what a reader needs, puts a five-line summary on top they can act on, and strips the signatures of machine-written prose.
 
 A tanka is 31 syllables across five lines. There is no room in it for filler, so it carries only what matters. That is the standard the skill applies, and the five-line cap on the summary is literal.
 
@@ -34,6 +34,7 @@ Five modes, selected by what you ask for:
 | "sort this out", "make this readable" | **Restructure** | The three layers. Nothing cut |
 | "cut this down", "tighten this" | **Compress** | Rewrites throughout. For genuinely padded documents |
 | "is this too long?" | **Diagnose** | Reports what is wrong and which treatment fits. Changes nothing |
+| "does this read as AI?" | **Register** | Removes the machine tells. Structure untouched |
 | drafting something new | **Author brief** | Applies at draft time so the document comes out short |
 
 Restructure is the right answer more often than compress.
@@ -74,15 +75,22 @@ An admin uploads the same zip at **claude.com → Organisation settings → Skil
 
 The plugin route installs per user and does not propagate across an organisation. If you want a team to have this without each person installing it, the admin zip upload is the path.
 
-## Using it with other skills
+## The register pass
 
-`tanka` works on structure and information density. It deliberately says nothing about register or voice, because two other skills own those:
+Structure is half the job. The other half is what the document sounds like, and a restructured document still reads as machine-written if it is full of things that stand as a testament to a broader shift in the evolving landscape.
 
-- [`human-voice`](https://github.com/theclockworkcloud/human-voice) removes the signatures of machine-written prose
-- `alex-voice` applies one person's voice
+So the skill carries a register pass as well. It runs **last**, because structural cuts change what prose is left to work on and polishing before cutting wastes the polish.
 
-Run `tanka` first. Structural cuts change what prose is left to work on, so polishing before cutting wastes the polish.
+Six rules sit in `SKILL.md`: Australian English with British diction, sentence case headings, no em dashes, plain verbs over stiff ones, name the source or own the claim, and search every draft for chat residue before it ships.
+
+The full catalogue lives in `skills/tanka/references/machine-tells.md` and loads only when a register pass actually runs. It covers content tells, language tells, formatting tells, residue tells that are conclusive on sight, and a list of things that get wrongly flagged and are not tells at all.
+
+Both halves come from one cause. Over-communication and machine register are the same trade: the specific thing leaves, and volume arrives to cover the gap. A blockers list followed by "if these are not resolved I cannot proceed" and a paragraph closing with "underscoring its importance to the broader programme" are the same sentence in different clothes.
+
+**It is not an accusation tool.** Tells cluster, no single one proves anything, and detection scores are not evidence.
 
 ## Licence
 
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Copy it, adapt it, redistribute it, including commercially. Credit the source.
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Copy it, adapt it, redistribute it, including commercially. Credit the source, and licence your version under the same terms.
+
+The share-alike term is inherited rather than chosen. The register catalogue is adapted from Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), which is CC BY-SA, so the whole skill carries that licence.
