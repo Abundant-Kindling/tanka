@@ -1,9 +1,27 @@
 dist/
 
-# This repo is public. Test material is real client and internal work, so it
-# never lives inside it. Test documents go in ~/RCDev/.tanka-testdata/ instead.
-# These rules are a backstop against a stray `git add -A`, not the primary
-# control: keeping the file outside the repo is the primary control.
+# ---------------------------------------------------------------------------
+# This repo is PUBLIC. Real client and internal documents must never enter it.
+#
+# Test material lives OUTSIDE the repo, at ~/RCDev/.tanka-testdata/. That is
+# the primary control. Everything below is a backstop against a stray
+# `git add -A`, because the drop zone and the repo sit next to each other and
+# the first version of this file only covered Office formats. Client-named
+# HTML and a zip landed in examples/ untracked-but-not-ignored, one command
+# away from being published.
+#
+# examples/ is now deny-by-default: anything dropped there is ignored unless
+# it is explicitly named below. Add a new synthetic example by adding its
+# filename here, deliberately.
+# ---------------------------------------------------------------------------
+
+examples/*
+!examples/.gitkeep
+!examples/README.md
+!examples/before-status-report.md
+!examples/after-status-report.md
+
+# Document formats, anywhere in the tree
 *.pdf
 *.doc
 *.docx
@@ -13,3 +31,7 @@ dist/
 *.pptx
 *.msg
 *.eml
+*.html
+*.htm
+*.csv
+*.zip
