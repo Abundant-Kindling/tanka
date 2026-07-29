@@ -33,7 +33,9 @@ When the ask is ambiguous, default to **summary layer**. It is the only mode tha
 
 When no document has been supplied, ask which one. Do not guess.
 
-**Read the whole source first.** Never summarise from the opening pages and infer the rest. The ask, the deadline and the figure that matters sit near the end at least as often as the start, and a summary built from a partial read is confidently wrong in a way the reader cannot detect.
+**Read the whole source first.** Never summarise from the opening pages and infer the rest. A summary built from a partial read is confidently wrong in a way the reader cannot detect.
+
+**Start looking at the end.** The most consequential sentence in a long document is usually in its last fifth: the fee, the approval being sought, the constraint that blocks everything. Across the real documents this skill was tested against, it was at the end every time. A $8.6M proposal put its ask on page 19 of 21. A ten-page proposal put "provide a written work order to commence" on page 10. A build reference put its two go / no-go conditions in the final sentence. Writers arrive at what they want after explaining themselves, and then ship it in that order. Read the tail first and you find the spine of the document in one pass.
 
 **Where the output goes.** A pasted document gets its output in the reply. A document supplied as a file gets a new file alongside it, suffixed `-short`, and the original is left untouched. Overwrite the source only on an explicit instruction to do so.
 
