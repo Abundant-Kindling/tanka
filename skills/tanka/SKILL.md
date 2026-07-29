@@ -30,6 +30,10 @@ When the ask is ambiguous, default to **summary layer**. It is the only mode tha
 
 When no document has been supplied, ask which one. Do not guess.
 
+**Read the whole source first.** Never summarise from the opening pages and infer the rest. The ask, the deadline and the figure that matters sit near the end at least as often as the start, and a summary built from a partial read is confidently wrong in a way the reader cannot detect.
+
+**Where the output goes.** A pasted document gets its output in the reply. A document supplied as a file gets a new file alongside it, suffixed `-short`, and the original is left untouched. Overwrite the source only on an explicit instruction to do so.
+
 ## The five-line summary
 
 Every summary answers three questions inside five lines:
