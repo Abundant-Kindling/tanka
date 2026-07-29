@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "tanka",
+  "description": "A single-skill marketplace: tanka, a brevity pass that summarises a long document in five lines and cuts the body to what a reader needs.",
+  "owner": {
+    "name": "Alex Hender",
+    "url": "https://github.com/theclockworkcloud"
+  },
+  "plugins": [
+    {
+      "name": "tanka",
+      "description": "Cut a long document to what a reader needs, and put a five-line summary on top they can act on. Kills over-communication: restatement, implied consequences spelled out, background before the ask.",
+      "author": {
+        "name": "Alex Hender"
+      },
+      "category": "writing",
+      "source": "./",
+      "homepage": "https://github.com/theclockworkcloud/tanka",
+      "license": "CC-BY-4.0"
+    }
+  ]
+}
