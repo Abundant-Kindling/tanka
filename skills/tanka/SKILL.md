@@ -75,7 +75,13 @@ A three-page document that lost a due date is worse than the twenty pages it rep
 
 **The check, before any compress pass is declared done:** list every figure, date, name, commitment and requested decision in the source. Find each one in the output. Anything missing goes back. If it will not fit, the compression target was wrong, and the target moves.
 
+The check applies to the whole output, not to the summary. A summary of a costing document cannot carry forty figures and should not try. What the summary must carry is the figures the decision turns on: the total, the amount being approved, and the deadline. Everything else lives in the body, and in summary layer mode the body is untouched, so fidelity is automatic there.
+
 Where a fact is genuinely repeated (the same figure stated four times), keep one instance, and keep it where a reader will look for it.
+
+**When the repeats disagree, stop and flag it.** Deduplicating is what makes a contradiction visible: four statements of a site count are four chances for one of them to say 20 where the others say 21. Never resolve it by picking the version that reads best. Surface both and ask which is right. A long document hides its contradictions, and compression is often the first thing to expose them.
+
+**Fidelity runs in both directions. Never invent a fact to satisfy a rule.** Where the source sets no deadline, the summary says so: "No date set. Tell me when you need this by." A fabricated deadline is a worse failure than a missing one, because the reader cannot tell it apart from a real one. The same holds for an ask the source never made, and a total the source never stated.
 
 ## Over-communication: the patterns
 
@@ -179,6 +185,17 @@ Some documents run long because the detail is the deliverable. Compressing those
 - Anything a third party will rely on, or that forms part of a record
 
 **The test:** would a reader ever need to look something up in this, rather than read it through? Look-up documents keep everything.
+
+### The hybrid, which is most real documents
+
+A twenty-page proposal is usually a look-up document wearing a padded prose layer. The rate tables, site schedules, standards references and exclusion lists have to survive untouched. The connecting prose around them often states the same thing four times.
+
+Treat these as one pass with two rules:
+
+- **Tables, schedules, figures, standards references, assumptions and exclusions: verbatim.** Do not reformat, merge or round them. A rate table is a look-up surface, and editing it silently changes a commercial position
+- **Connecting prose: compress hard.** This is where the repetition lives, because a writer restates the delivery model at the top of each section so that section reads standalone
+
+The result is not a three-page document. It is the same document, three or four pages shorter, with a summary on top and a reader who reaches the ask on page one instead of page nineteen. Report it that way rather than claiming a ratio the tables made impossible.
 
 The second case is a document that is dense rather than padded. Run the diagnose pass, and where nothing on the taxonomy above appears, report that. "Eleven pages, and all eleven are carrying content" is a real finding, and it beats manufacturing a cut to satisfy the request.
 
