@@ -20,6 +20,8 @@ examples/*
 !examples/README.md
 !examples/before-status-report.md
 !examples/after-status-report.md
+!examples/before-proposal.md
+!examples/after-proposal.md
 
 # Document formats, anywhere in the tree
 *.pdf
