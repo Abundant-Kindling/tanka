@@ -12,22 +12,39 @@ The tell is a blockers list followed by "if these are not resolved, I cannot pro
 
 A good communicator solves this with a short top-line summary and a pointer to where the detail lives. The reader scans, works out whether this needs them, and either acts or moves on. `tanka` does that mechanically.
 
+## Three layers
+
+Most documents that read badly are well written and badly ordered. The fix is not cutting, it is sorting the same content into layers a reader can stop at.
+
+| Layer | Length | The reader's question | They finish able to |
+|---|---|---|---|
+| **1. The five lines** | 5 lines | Does this need me? | Act, delegate, or read on |
+| **2. Executive summary** | 1 page | What is the position? | Chair the meeting about it |
+| **3. All the facts** | However long it is | What exactly does it say? | Look anything up |
+
+Each layer is a complete answer at its own depth. Layer 3 loses nothing, which is what makes a restructure safe on contracts, costings and scopes of work where compression would destroy the document.
+
 ## What it does
 
-Four modes, selected by what you ask for:
+Five modes, selected by what you ask for:
 
 | Ask | Mode | Effect |
 |---|---|---|
-| "summarise this", "give me a TL;DR" | **TL;DR layer** | Prepends a five-line summary. Body untouched |
-| "cut this down", "tighten this" | **Compress** | Rewrites throughout. Twenty pages to two or three |
-| "is this too long?" | **Diagnose** | Reports where it over-communicates. Changes nothing |
+| "summarise this", "give me a TL;DR" | **Summary layer** | Prepends the five lines. Body untouched |
+| "sort this out", "make this readable" | **Restructure** | The three layers. Nothing cut |
+| "cut this down", "tighten this" | **Compress** | Rewrites throughout. For genuinely padded documents |
+| "is this too long?" | **Diagnose** | Reports what is wrong and which treatment fits. Changes nothing |
 | drafting something new | **Author brief** | Applies at draft time so the document comes out short |
+
+Restructure is the right answer more often than compress.
 
 ## What it will not do
 
 Compression removes words, never facts. Figures, dates, deadlines, named people, commitments, and the decision being requested survive every pass. A summary that loses a dollar figure or a due date is a defect, not a trade-off.
 
-It also declines to compress documents where the detail is the deliverable: specifications, costings, contracts, scopes of work, incident timelines. Those get the summary layer and keep their body. A document that reads long because it is dense is not a document that needs cutting.
+It also declines to compress documents where the detail is the deliverable: specifications, costings, contracts, scopes of work, incident timelines. Those get restructured instead, so the full detail survives while a decision-maker still gets five lines and a page. A document that reads long because it is dense is not a document that needs cutting.
+
+It reports the reduction it actually achieved rather than the one you hoped for. Measured on a real client email, a full pass cut 17 per cent of the prose and moved the ask from the last paragraph to the first line. The second number is the one that mattered.
 
 ## Installing
 
