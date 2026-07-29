@@ -1,6 +1,6 @@
 ---
 name: tanka
-description: Cut a long document to what a reader needs, and put a five-line summary on top they can act on. Use when asked to summarise, condense, shorten, tighten, trim or cut down a document, email or report; when asked for a TL;DR, executive summary, top line or key points; when a document is too long, bloated, unwieldy or over-communicating; when asked to write briefly or keep something short; and when drafting internal comms that should come out short in the first place.
+description: Restructure a long document into three layers a reader can stop at: five lines, one page, then everything. Use when asked to summarise, condense, shorten, tighten, trim, cut down, restructure, reorder or sort out a document, email, proposal or report; when asked for a TL;DR, executive summary, top line or key points; when a document is too long, bloated, unwieldy, unreadable or over-communicating, or buries what it is asking for; when asked to write briefly or keep something short; and when drafting internal comms that should come out short in the first place.
 ---
 
 # Tanka
@@ -22,11 +22,14 @@ Route on what was asked. There are no flags.
 | The ask | Mode | What you produce |
 |---|---|---|
 | "summarise this", "give me a TL;DR", "top line" | **Summary layer** | A five-line summary prepended. Body byte-identical |
+| "sort this out", "make this readable", "restructure this" | **Restructure** | The same content in three layers. Nothing cut |
 | "cut this down", "tighten this", "shorten this" | **Compress** | A rewritten document, summary on top, source linked |
 | "is this too long?", "what's wrong with this?" | **Diagnose** | A findings report. No changes to the document |
 | Drafting something new | **Author brief** | A document that comes out short the first time |
 
-When the ask is ambiguous, default to **summary layer**. It is the only mode that cannot lose anything, so it is the safe default when you are unsure what the document is for.
+**Restructure is the right answer more often than compress.** A document that reads badly is usually well written and badly ordered: its words are carrying content, and the problem is that the reader meets them in the wrong sequence. Compress is for documents that are genuinely padded. Run diagnose when you cannot tell, and let the padding count decide.
+
+When the ask is ambiguous, default to **summary layer**. It is the only mode that changes nothing at all, so it is the safe default when you are unsure what the document is for.
 
 When no document has been supplied, ask which one. Do not guess.
 
@@ -34,9 +37,27 @@ When no document has been supplied, ask which one. Do not guess.
 
 **Where the output goes.** A pasted document gets its output in the reply. A document supplied as a file gets a new file alongside it, suffixed `-short`, and the original is left untouched. Overwrite the source only on an explicit instruction to do so.
 
-## The five-line summary
+## The three layers
 
-Every summary answers three questions inside five lines:
+Every document worth restructuring has three readerships, and they are usually the same person on different days.
+
+| Layer | Length | The reader's question | They finish able to |
+|---|---|---|---|
+| **1. The five lines** | 5 lines | Does this need me? | Act, delegate, or read on |
+| **2. Executive summary** | 1 page | What is the position? | Hold a conversation about it and defend the decision |
+| **3. All the facts** | However long it is | What exactly does it say? | Look anything up |
+
+Three rules hold the shape together:
+
+- **Each layer is a complete answer at its own depth.** A reader who stops at layer 1 has something they can act on. A reader who stops at layer 2 is not missing the point, only the detail. No layer is a teaser for the next one
+- **Layer 3 loses nothing.** Every table, figure, standards reference, exclusion and assumption survives in full. This is what makes a restructure safe on contracts, costings and scopes of work, where compression is not
+- **The layers never disagree.** A figure in layer 2 matches layer 3 exactly. Where they conflict, layer 3 is right and layer 2 gets corrected, because layer 3 is the record
+
+Reading down the layers costs the reader more time and gives them more resolution. Most readers never reach layer 3, and that is the design working rather than the document failing.
+
+### Layer 1: the five lines
+
+Answers three questions inside five lines:
 
 1. What is this?
 2. What do you need from me?
@@ -52,9 +73,39 @@ A line is one sentence or one bullet. Headings do not count. Five is a cap, not 
 
 **If five lines will not hold it, the document has more than one purpose.** Split it. Where splitting is not possible, state the primary ask and point at the second: "a second decision on the panel structure sits at section 6."
 
-Write the summary last. It is read first.
+Write it last. It is read first.
 
-It goes at the very top, above any existing executive summary. An executive summary that runs to a page is a body section now.
+It goes at the very top, above the executive summary.
+
+### Layer 2: the executive summary
+
+One page. The reader who stops here can chair the meeting about this document.
+
+It carries the position, not the approach. This is the layer most documents get wrong, and they get it wrong the same way every time: a page of methodology and delivery model with the money on page ten. A reader finishing an executive summary should know the number.
+
+Include:
+
+- The decision, the options, and who holds it
+- The money: the total, what is being approved now, what follows later
+- The dates that bind, and where none exist, that none exist
+- The two or three things most likely to change the number, and by how much
+- What the reader keeps control of
+
+Leave out:
+
+- Anything that appears nowhere in layer 3. An executive summary introduces no new facts
+- Cross-references the reader must follow to make sense of the sentence. Layer 2 stands alone or it has failed
+- Methodology, unless the method is the thing being approved
+
+Where a document already has an executive summary, judge it against that list. Most existing ones become the opening of layer 3, and a new layer 2 gets written above them.
+
+### Layer 3: all the facts
+
+Untouched, in full, ordered so things can be found.
+
+Restructuring layer 3 means moving material, not editing it: the ask comes out of the tail and goes to layer 1, the position comes out of wherever it was buried and goes to layer 2, the sections get an order a reader can navigate. The content stays.
+
+Two things earn their keep here and nowhere else: a table of contents once the document passes about ten pages, and section numbers, so layers 1 and 2 can point at exactly where a thing lives.
 
 ## Fidelity: what survives every pass
 
@@ -173,6 +224,8 @@ Keep the strongest bullet and delete the others. Three bullets saying one thing 
 
 The summary promises the detail exists. Make that true.
 
+Inside a restructured document, the three layers do this job themselves: layer 1 points at layer 2, layer 2 points at numbered sections in layer 3, and nothing has left the document. The rules below matter most when the detail lives somewhere else.
+
 - **Compression produces a layer. The source survives.** Link it or name it: "full background: [link]", "supplier detail: attachment A". Never delete the source unless explicitly told to
 - **Close with how to get more,** including asking you. "Anything else, ask me" is a real offer and costs one line
 - **Where the detail is in the same document, name the section.** "Detail on the variation: section 4"
@@ -180,7 +233,7 @@ The summary promises the detail exists. Make that true.
 
 ## When not to compress
 
-Some documents run long because the detail is the deliverable. Compressing those destroys the thing. They get a summary layer and keep their body intact:
+Some documents run long because the detail is the deliverable. Compressing those destroys the thing:
 
 - Specifications and scopes of work
 - Costings, rate schedules, bills of quantities
@@ -191,6 +244,8 @@ Some documents run long because the detail is the deliverable. Compressing those
 - Anything a third party will rely on, or that forms part of a record
 
 **The test:** would a reader ever need to look something up in this, rather than read it through? Look-up documents keep everything.
+
+**Restructure them instead.** This list is not a list of documents that must stay unreadable. A three-layer restructure moves material without cutting any, so the full detail survives as layer 3 while a decision-maker gets five lines and a page. A twenty-page costing is a poor document to compress and an excellent one to restructure, because its ask is usually buried behind the very tables that make compression impossible.
 
 ### The hybrid, which is most real documents
 
@@ -228,11 +283,14 @@ Keep it to a page. Report, in this order:
 
 1. Source length, and estimated load-bearing content
 2. Patterns found, by name and instance count, with one example each
-3. Whether an ask exists, and whether it is stated in the first five lines
-4. Any figure, date or commitment stated once and buried where a reader will miss it
-5. Estimated compressed length, and whether this document should be compressed at all
+3. Whether an ask exists, and how far into the document a reader meets it
+4. Whether a layer 2 exists, and whether it carries the money or only the approach
+5. Any figure, date or commitment stated once and buried where a reader will miss it
+6. Contradictions between repeated statements of the same fact
+7. Dates that have passed
+8. **The recommendation: restructure or compress.** Padding under roughly 15 per cent of the prose means restructure. Above about 40 per cent, compress. In between, do both and say so
 
-Change nothing. The point of the mode is that the author does the cutting.
+Change nothing. The point of the mode is that the author does the work.
 
 ## Where this stops and other skills start
 
@@ -281,18 +339,30 @@ What went: the greeting, the statement of purpose, the March background, "consid
 
 Run over a finished pass:
 
+**The layers**
+
 1. Is there an ask, and is it in the first five lines in words the reader can act on?
-2. Does the summary run to five lines or fewer?
-3. List every figure, date, name, commitment and requested decision in the source. Find each in the output
-4. Delete every sentence stating a consequence the list above it already implied
-5. Delete every recap
-6. Is any background sitting in front of the ask? Move it behind
-7. Delete "I am writing to", "This document will cover", "As outlined above"
-8. Any list whose bullets rephrase one point? Keep one
-9. Any workstream reported on with nothing to report? Cut it
-10. Does the reader know where to get more, and can they reach it?
-11. Read the summary cold, without the body. Can you act on it?
-12. State the real ratio
+2. Does layer 1 run to five lines or fewer?
+3. Does layer 2 fit a page, and does it carry the money rather than only the approach?
+4. Read layer 2 alone. Could the reader chair a meeting on it without opening layer 3?
+5. Do any figures disagree between layers? Layer 3 wins
+6. Is layer 3 complete, with every table, schedule, standard, assumption and exclusion intact?
+
+**The cuts**
+
+7. List every figure, date, name, commitment and requested decision in the source. Find each in the output
+8. Delete every sentence stating a consequence the list above it already implied
+9. Delete every recap of the document. Keep every recap of a conversation
+10. Delete "I am writing to", "This document will cover", "As outlined above"
+11. Any list whose bullets rephrase one point? Keep one
+12. Any workstream reported on with nothing to report? Cut it
+
+**Before it goes**
+
+13. Check every date against today. Flag the ones that have passed
+14. Does the reader know where to get more, and can they reach it?
+15. Read layer 1 cold, without the rest. Can you act on it?
+16. Report both measures: the real ratio, and how far in the ask used to sit
 
 ## Licence
 
