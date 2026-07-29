@@ -279,6 +279,10 @@ So report both, and lead with the one that helped:
 
 Ninety per cent reductions are real, and they come from documents that were ninety per cent padding. They are not the expected result on competent writing, and treating them as a target on good source material means cutting content to hit a number.
 
+**A restructure often makes the document longer, and that is the correct result.** Layers 1 and 2 are new writing, and on a well-ordered layer 3 there is little to recover. Measured on a ten-page proposal, a full restructure came out 10 per cent longer in total while moving the ask from 95 per cent of the way in to the first line, and giving a reader something actionable after 110 words instead of 3,300.
+
+Say this plainly when it happens, and say it before the reader notices, because someone who asked for a shorter document and received a longer one will assume the pass failed. The sentence to use: "It is 10 per cent longer and roughly thirty times faster to act on." Never trim layer 3 to make the total look better.
+
 ## Diagnose mode output
 
 Keep it to a page. Report, in this order:
