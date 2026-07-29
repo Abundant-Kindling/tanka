@@ -60,18 +60,30 @@ This was not paranoia. On 29 Jul 2026 two client proposal PDFs, a set of client-
 
 **The same trap caught this file.** An earlier revision of `claude.md` recorded the verification results by naming the client documents and quoting figures out of them, and it was committed and pushed while the repo was public. The repo was set private inside fifteen minutes, with zero clones. The rule learned: the ignore list protects against files arriving, and nothing protects against a tracked file being *written* with client content in it. Ground-truth documents in a public repo describe the work generically or not at all.
 
-## Visibility
+## Visibility and the history rebuild
 
-**Private as of 29 Jul 2026.** One commit on `alex/tanka-skill` briefly carried client names and figures in this file while the repo was public. It was squashed out of history the same day with Alex's explicit consent for the force-push, and every reachable commit is clean.
+**This repository was rebuilt on 29 Jul 2026 and is private pending a decision to publish.**
 
-**Before going public, one thing is outstanding.** A force-push makes a commit unreachable from any ref; it does not delete the object. GitHub keeps unreachable objects fetchable by direct SHA until it garbage-collects, which it does not do on request. While the repo is private that is harmless. Flipping it to public would make the old object retrievable by anyone holding the SHA.
+What happened: an earlier revision of this file recorded the verification results the useful way, by naming the client documents and quoting figures out of them. It was committed and pushed while the repo was public. Set private within fifteen minutes, zero clones and zero forks.
 
-Two ways to close that properly, and one of them should happen before publication:
+The first remedy, squashing the commit and force-pushing, was not sufficient and the reason is worth recording. **A force-push makes a commit unreachable from any ref. It does not delete the object.** GitHub serves unreachable objects by direct SHA until it garbage-collects, which it does not do on request. Querying the purged SHA through the API still returned the full patch, client detail intact. Anyone who had the SHA and waited for the repo to go public would have had it.
 
-1. **Ask GitHub Support to run `gc` on the repository.** Keeps the repo, the history and the PR
-2. **Push the clean tree to a fresh repository** and delete this one. Certain, and costs the PR history
+So the repo was rebuilt instead: the clean local tree pushed to a fresh repository of the same name, and the contaminated one renamed to `tanka-leaked-delete-me` and left private for deletion.
 
-The SHA is deliberately not recorded here, because writing it down in the repo would defeat the purpose.
+Verified clean on this repository by two independent checks:
+
+- The purged SHA returns `422 No commit found`
+- A full `--mirror` clone, scanning every object rather than every commit, returns zero hits against a client-term pattern
+
+**Outstanding:** `theclockworkcloud/tanka-leaked-delete-me` still exists, still private, and still holds the object. It needs deleting. That requires the `delete_repo` scope, which the session token does not carry, so it is Alex's action: the GitHub web UI, or `gh auth refresh -s delete_repo` first.
+
+The leaked SHA is deliberately not recorded in this file. Writing it down here would hand a reader the one thing they would need.
+
+### The lesson, stated plainly
+
+Three controls existed and none of them caught this. `.gitignore` guards against client *files* arriving. The drop zone keeps client material outside the repo. Neither touches a tracked file that a well-meaning author *writes* client content into, and the ground-truth document is exactly the file that wants naming names, because naming them is what makes it useful.
+
+**A ground-truth document in a publishable repo describes the work generically or not at all.** Specifics go to `rc-handoff.md`, which is private.
 
 ## Distribution
 
