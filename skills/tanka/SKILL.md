@@ -205,11 +205,22 @@ The result is not a three-page document. It is the same document, three or four 
 
 The second case is a document that is dense rather than padded. Run the diagnose pass, and where nothing on the taxonomy above appears, report that. "Eleven pages, and all eleven are carrying content" is a real finding, and it beats manufacturing a cut to satisfy the request.
 
-## Report the real ratio
+## Report the real ratio, and know that it is the wrong headline
 
 State the reduction actually achieved. Where twenty pages compress to eight, say eight.
 
 Two ways to fake it, both banned: hitting a target by dropping content off the never-cut list, and claiming a ratio the pass did not reach.
+
+**Word count is the weaker of the two measures. The one that matters is how long it takes a reader to reach the ask.**
+
+A well-written document that buries its request at the bottom yields very little on word count, because most of its words are carrying content. Measured on a real client follow-up email, a full pass cut 17 per cent of the prose. On the same email it moved the ask from the last paragraph to the first line. The second change is worth more than the first, and a reader would describe the result as dramatically shorter while the word count says otherwise.
+
+So report both, and lead with the one that helped:
+
+- Where the source was padded, the ratio is the story. Say it
+- Where the source was well written and badly ordered, say that instead: "17 per cent shorter, and the ask moved from the bottom to line one." Do not apologise for the ratio, and do not pad the cut to improve it
+
+Ninety per cent reductions are real, and they come from documents that were ninety per cent padding. They are not the expected result on competent writing, and treating them as a target on good source material means cutting content to hit a number.
 
 ## Diagnose mode output
 
