@@ -83,6 +83,8 @@ Where a fact is genuinely repeated (the same figure stated four times), keep one
 
 **Fidelity runs in both directions. Never invent a fact to satisfy a rule.** Where the source sets no deadline, the summary says so: "No date set. Tell me when you need this by." A fabricated deadline is a worse failure than a missing one, because the reader cannot tell it apart from a real one. The same holds for an ask the source never made, and a total the source never stated.
 
+**Check the dates against today.** An old document carries dates that have quietly expired: three meeting windows offered, two of them last week. Reproducing them faithfully is accurate and useless. Keep them in the body, surface only the live ones in the summary, and say which have passed. A summary that offers the reader a date in the past has failed at the one job the summary has.
+
 ## Over-communication: the patterns
 
 A long document is rarely long because it holds too much content. It is long because the content is stated more than once, and because the writer wrote down inferences the reader would have drawn unassisted.
@@ -97,11 +99,15 @@ The reader reached that conclusion while reading the list. Delete the sentence.
 
 Where the consequence is genuinely not obvious, it is new information, so give it a number and a fact: "each week these stay open costs $6k in standby labour."
 
-### 2. The recap
+### 2. The recap of the document
 
-A section restating what sits above it, whether labelled "Summary of the above", "Recap", "In review", or simply doing the job unannounced.
+A section restating what sits above it in the same document, whether labelled "Summary of the above", "Recap", "In review", or simply doing the job unannounced.
 
-Delete it. The five-line summary is the only recap a document gets.
+Delete it. The five-line summary is the only recap of itself a document gets.
+
+**A recap of a conversation is the opposite, and must survive.** "Recap of today's discussion" in a meeting follow-up is not padding, it is the document's entire purpose: the written record of what was agreed, which is what both parties will rely on when memories diverge. Tighten the prose inside it and never cut the substance. Getting this backwards is the most expensive mistake available in this skill, because it deletes the only durable record of a conversation.
+
+The test: does this restate something the reader can scroll up and read, or something that happened in a room? Scroll-up recaps go. Room recaps stay.
 
 ### 3. Background in front of the ask
 
