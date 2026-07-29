@@ -1,1 +1,15 @@
 dist/
+
+# This repo is public. Test material is real client and internal work, so it
+# never lives inside it. Test documents go in ~/RCDev/.tanka-testdata/ instead.
+# These rules are a backstop against a stray `git add -A`, not the primary
+# control: keeping the file outside the repo is the primary control.
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+*.msg
+*.eml
