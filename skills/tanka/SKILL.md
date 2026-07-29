@@ -13,6 +13,8 @@ That is the standard here, and the five-line cap on a summary is literal.
 
 Internal and professional communications: emails, status updates, project documents, briefs, memos, reports, meeting notes, Slack and Teams posts, proposals, board papers.
 
+Two jobs, and a document can want either or both. **Structure and density:** does this respect the reader's time and let them act? **Register:** does this read as machine-written, and does it hold house style? Structure runs first.
+
 Skip it for code, configuration, structured data, and anything where a machine is the reader.
 
 ## Pick a mode

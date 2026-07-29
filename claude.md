@@ -29,7 +29,7 @@ Layer 3 loses nothing, which is what makes the treatment safe on contracts, cost
 | Named `tanka`, not `brevity` | Alex's call, 29 Jul 2026. The name carries the constraint: 31 sounds, five lines, no room for filler. It costs discoverability, so the frontmatter `description` carries every trigger word instead |
 | Five-line cap on layer 1 is hard | Alex's brief said "here's the five things you actually need to know". The form says five lines. The two agreed, so the cap became literal |
 | **Three layers, not compression, as the centrepiece** | Alex's call, 29 Jul 2026, after measurement showed a full pass on a well-written email cut only 17 per cent. For good documents the problem is order, not length. This reframing also rescued the never-compress list: those documents can be restructured safely, where before they got a TL;DR and no other help |
-| Five modes, routed by intent | Skills take no arguments, so the doc routes on what was asked. Summary layer is the default for ambiguous asks because it is the only mode that changes nothing |
+| Six modes, routed by intent | Skills take no arguments, so the doc routes on what was asked. Summary layer is the default for ambiguous asks because it is the only mode that changes nothing. Register was the sixth, added 29 Jul 2026 with the `human-voice` merge |
 | Generic, no per-document-type templates | Considered shapes per document type with their own summary fields. Rejected 29 Jul 2026: more to maintain, and the three questions a summary answers do not change by document type |
 | Fidelity as a hard constraint, running both ways | Losing a figure is the obvious failure. Inventing one to satisfy a rule is the subtler one, and the test documents pushed toward it |
 | Structural bloat declared out of scope | Quoted chains, signature tables, CAUTION banners and meeting boilerplate strip deterministically in code for nothing. Paying a model to read 164 tables of inline styling and then asking it to be concise is the wrong way round |
@@ -49,6 +49,7 @@ skills/tanka/
   SKILL.md                      the deliverable, always loaded when the skill fires
   references/machine-tells.md   register catalogue, loaded only on a register pass
 examples/              two worked pairs, deny-by-default in .gitignore
+rollout-announcement.md  the team comm, drafted and unsent
 build.sh               stages skill + LICENSE into dist/tanka.zip
 ```
 
@@ -151,11 +152,11 @@ Built, verified, merged and deployed 29 Jul 2026 in a single session. PRs #1, #2
 
 | File | Lines | Words | Loaded |
 |---|---|---|---|
-| `SKILL.md` | 432 | 5,539 | Every time the skill fires |
+| `SKILL.md` | 434 | 5,577 | Every time the skill fires |
 | `references/machine-tells.md` | 278 | 2,869 | Only on a register pass |
-| Total | 710 | 8,408 | Never all at once |
+| Total | 712 | 8,446 | Never all at once |
 
-The merge added 2,869 words of material and only 500 of them to the always-loaded file, because the catalogue went behind a pointer.
+The merge added 2,869 words of material and 538 of them to the always-loaded file, because the catalogue went behind a pointer. `SKILL.md` was 411 lines and 5,039 words before it.
 
 **Watch `SKILL.md`.** Anthropic's documented budget for the body is under 5k tokens and it is already past that at roughly 7.5k. The skill is reference material and exempt from its own compress pass, but a brevity skill has a credibility ceiling and this is at it. **Prefer replacing a section over adding one, and prefer `references/` over both.** Anything that is a look-up surface rather than a decision rule belongs behind a pointer.
 
@@ -165,7 +166,8 @@ The merge added 2,869 words of material and only 500 of them to the always-loade
 2. **Remove tanka from AK.** Delete the `~/AKDev/dotfiles/skills/tanka` symlink, or add a per-account allowlist to `deploy-skills.sh`. **AK-session action.** This replaces the old item, which said to commit that symlink, and which the RC-only decision reversed
 3. **`rc-handoff.md` has an entry appended and uncommitted,** same AK-session constraint
 4. **Consider trimming the `delete_repo` scope** from the `gh` token. It was granted for one deletion and persists
-5. **The register pass is unverified against real documents.** Every other rule in this skill earned its place by breaking on a real client document first, per the fourteen defects below. The register material arrived tested only as a standalone skill in AK, not as part of tanka, and the interaction between the two passes has never been run. Next session: put a real machine-drafted internal document through a full pass and see what the seam between structure and register does
+5. **Send the rollout announcement.** Drafted at `rollout-announcement.md`, unsent, and sequenced **after** the org upload because it tells people the tool is already there. Sending it first makes a liar of it
+6. **The register pass is unverified against real documents.** Every other rule in this skill earned its place by breaking on a real client document first, per the fourteen defects below. The register material arrived tested only as a standalone skill in AK, not as part of tanka, and the interaction between the two passes has never been run. Next session: put a real machine-drafted internal document through a full pass and see what the seam between structure and register does
 
 **Fourteen defects were found and all fourteen are fixed.** Thirteen came from running the skill against real documents, one from the pre-wrap review. None came from imagination. In order of how much damage they would have done:
 

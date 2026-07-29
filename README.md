@@ -26,7 +26,7 @@ Each layer is a complete answer at its own depth. Layer 3 loses nothing, which i
 
 ## What it does
 
-Five modes, selected by what you ask for:
+Six modes, selected by what you ask for:
 
 | Ask | Mode | Effect |
 |---|---|---|
