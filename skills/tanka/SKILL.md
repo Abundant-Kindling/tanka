@@ -33,6 +33,12 @@ When the ask is ambiguous, default to **summary layer**. It is the only mode tha
 
 When no document has been supplied, ask which one. Do not guess.
 
+**There is a floor. Below it, do nothing.** A document a reader can finish in under a minute, roughly 200 words, does not get a summary. A five-line summary of a 102-word email is nearly as long as the email, and producing one is worse than useless: it doubles the reading and implies the original was hard work. Say "this is already short, nothing to do here" and stop.
+
+The test is the message, not the file. An email whose body is 100 words of prose under a 600-word signature block, a legal footer and a quoted chain is a short email, and it is the signature that needs deleting rather than the message that needs summarising.
+
+**A summary longer than its source means the pass has failed.** Check the two lengths before returning anything.
+
 **Read the whole source first.** Never summarise from the opening pages and infer the rest. A summary built from a partial read is confidently wrong in a way the reader cannot detect.
 
 **Start looking at the end.** The most consequential sentence in a long document is usually in its last fifth: the fee, the approval being sought, the constraint that blocks everything. Across the real documents this skill was tested against, it was at the end every time. A $8.6M proposal put its ask on page 19 of 21. A ten-page proposal put "provide a written work order to commence" on page 10. A build reference put its two go / no-go conditions in the final sentence. Writers arrive at what they want after explaining themselves, and then ship it in that order. Read the tail first and you find the spine of the document in one pass.
@@ -135,6 +141,10 @@ Where a fact is genuinely repeated (the same figure stated four times), keep one
 **When the repeats disagree, stop and flag it.** Deduplicating is what makes a contradiction visible: four statements of a site count are four chances for one of them to say 20 where the others say 21. Never resolve it by picking the version that reads best. Surface both and ask which is right. A long document hides its contradictions, and compression is often the first thing to expose them.
 
 **Fidelity runs in both directions. Never invent a fact to satisfy a rule.** Where the source sets no deadline, the summary says so: "No date set. Tell me when you need this by." A fabricated deadline is a worse failure than a missing one, because the reader cannot tell it apart from a real one. The same holds for an ask the source never made, and a total the source never stated.
+
+**Recompute any total the document shows its own workings for.** Where a source states a percentage, a total or a variance and includes the data behind it, add it up. A summary that repeats a headline figure without checking it launders an arithmetic error into the one line everybody reads, and lends it the authority of having been summarised. Where the recomputation disagrees, report both and say which is which. Where it agrees, say so: "98.4 per cent, checked against the site table" is worth more than "98.4 per cent".
+
+**Say what you have not read.** Where the source defers to something you do not have, the summary names the hole rather than writing around it. "I have attached my previous email for context" means the context is in an attachment; a summary of the body alone is a summary of the covering note. Write "the substance is in the attached thread, which I have not seen" and let the reader decide whether that matters. Summarising confidently around a gap is the failure mode that makes a summariser untrustworthy, because the gap is invisible in the output.
 
 **Check the dates against today.** An old document carries dates that have quietly expired: three meeting windows offered, two of them last week. Reproducing them faithfully is accurate and useless. Keep them in the body, surface only the live ones in the summary, and say which have passed. A summary that offers the reader a date in the past has failed at the one job the summary has.
 
@@ -311,6 +321,24 @@ Three skills, three axes. This one stays on its own.
 Run **tanka first.** Structural cuts change what prose is left to work on, so polishing before cutting wastes the polish.
 
 This skill holds no vocabulary lists, no punctuation rules and no register guidance. Those belong to the other two, and duplicating them here would put two documents in charge of one decision.
+
+### Structural bloat is not this skill's problem
+
+Raw email is mostly not writing. Measured on real mail out of Microsoft Graph, one message ran 301 KB of HTML around 120 words of content: markup outweighed text 11 to 1, across 164 nested tables and 1,182 namespace-prefixed classes.
+
+None of that is over-communication, and none of it should reach a model. Four things account for nearly all of it, and all four are deterministic to remove:
+
+- Quoted reply chains (`From:` / `Sent:` / `To:` / `Subject:` blocks, `divRplyFwdMsg`, `x_`-prefixed nested content)
+- Signature blocks, especially those built as nested tables with `cid:` inline images
+- External-sender CAUTION banners and legal footers
+- Meeting-platform boilerplate: join URLs, meeting IDs, passcodes, "Need help?" links
+
+**Strip them in code before the model call, not with the model.** It is a parsing job, it costs nothing per message, and on a specimen like the one above it cuts input by an order of magnitude. Paying a model to read 164 tables of styling and then asking it to be concise is the wrong way round.
+
+Two cautions on the stripping:
+
+- **A quoted reply chain is thread history, not padding.** Where the chain holds the only record of what was agreed, it is layer 3 content. Strip the `From:` / `Sent:` furniture and the repeated signatures, keep the prose. This is the room-recap rule again, one level down
+- **Keep what the boilerplate contains.** A Teams block is boilerplate; a meeting already scheduled inside it is a fact. Strip the "Need help?" link and the join URL, keep the knowledge that a meeting exists
 
 ## Worked example
 
