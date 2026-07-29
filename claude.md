@@ -62,7 +62,25 @@ This was not paranoia. On 29 Jul 2026 two client proposal PDFs, a set of client-
 
 ## Visibility and the history rebuild
 
-**This repository was rebuilt on 29 Jul 2026 and is private pending a decision to publish.**
+**This repository is private, and staying private. Public is optional, not pending.**
+
+Confirmed against Anthropic's documentation 29 Jul 2026: the organisation route is a `.zip` upload at **Organisation settings → Skills**, with no GitHub involvement at all. Repo visibility is irrelevant to RenewCORP distribution. Alex is an org owner and RenewCORP is on Team, so both prerequisites are met.
+
+Public would only matter for the Claude Code plugin marketplace route, and not even strictly there: Claude Code supports private-repo marketplaces through existing git credential helpers, with the caveat that background auto-updates disable those helpers and fall back to re-cloning. RenewCORP staff are not the audience for a Claude Code plugin in any case.
+
+Publishing is therefore a separate decision about whether to release the skill publicly, not a prerequisite for using it. It is not blocked.
+
+### The organisation upload
+
+1. **Organisation settings → Skills**, enable both **Code execution and file creation** and **Skills**. Skills do not function without code execution
+2. **Organisation skills → "+ Add"**, upload `dist/tanka.zip`
+3. Deploys immediately to every member, enabled by default, reaching web chat, the Desktop chat tab and Cowork
+
+Owner-only, Team and Enterprise plans only. Members can toggle it off but cannot delete it, and provisioning is recorded in the audit log.
+
+**Rebuild the zip with `./build.sh` immediately before any upload.** `dist/` is gitignored, so a stale zip on disk carries no warning that the skill has moved on beneath it. This nearly shipped: the first zip was built eight commits before the three-layer rebuild.
+
+### History rebuild, 29 Jul 2026
 
 What happened: an earlier revision of this file recorded the verification results the useful way, by naming the client documents and quoting figures out of them. It was committed and pushed while the repo was public. Set private within fifteen minutes, zero clones and zero forks.
 
