@@ -81,11 +81,13 @@ Structure is half the job. The other half is what the document sounds like, and 
 
 So the skill carries a register pass as well. It runs **last**, because structural cuts change what prose is left to work on and polishing before cutting wastes the polish.
 
-Six rules sit in `SKILL.md`: Australian English with British diction, sentence case headings, no em dashes, plain verbs over stiff ones, name the source or own the claim, and search every draft for chat residue before it ships. That is the house-style layer, and it stands on its own.
-
-The full catalogue of machine tells is a separate skill, **[human-voice](https://github.com/Abundant-Kindling/human-voice)**. Install it alongside this one and `tanka` hands the sentence-level pass to it. It covers content tells, language tells, formatting tells, residue tells that are conclusive on sight, and a list of things that get wrongly flagged and are not tells at all. Two skills rather than one because they do different jobs: `human-voice` is voice-neutral and imposes no house style, `tanka` decides what a document says and in what order.
-
 Both halves come from one cause. Over-communication and machine register are the same trade: the specific thing leaves, and volume arrives to cover the gap. A blockers list followed by "if these are not resolved I cannot proceed" and a paragraph closing with "underscoring its importance to the broader programme" are the same sentence in different clothes.
+
+So the register pass is organised by that trade rather than as a catalogue of tells. Each entry names what checkable thing was cut and what unfalsifiable thing replaced it: a date replaced by significance, a named source replaced by "experts suggest", one true item padded to three for the rhythm, an ending replaced by a recap of what the reader just read. The fix is never to delete the filler. It is to put the specific thing back.
+
+Underneath the whole section sits one measurement: **checkable facts per hundred words.** Dates, figures, names, quantities, decisions. In prose that has made this trade the count falls while the length holds, and every stylistic tell is a symptom of that. When a draft reads wrong and nobody can say why, count before theorising.
+
+Six house-style rules sit alongside it: Australian English with British diction, sentence case headings, no em dashes, plain verbs over stiff ones, name the source or own the claim, one word per thing.
 
 **It is not an accusation tool.** Tells cluster, no single one proves anything, and detection scores are not evidence.
 
@@ -93,4 +95,8 @@ Both halves come from one cause. Over-communication and machine register are the
 
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Copy it, adapt it, redistribute it, including commercially. Credit Alex Hender and link the licence. You are not obliged to licence your version under the same terms.
 
-Original work throughout, which is what makes the permissive licence defensible. The share-alike material sits in the companion skill [human-voice](https://github.com/Abundant-Kindling/human-voice), which is [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) because it is adapted from Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing). The two are separate repos so that the share-alike obligation stays where it belongs. Redistribute them combined and the combined work carries CC BY-SA.
+Original work throughout, which is what makes the permissive licence available.
+
+## Further reading
+
+Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) is the most thorough public catalogue of machine-prose tells there is, maintained by the people with the strongest incentive to spot them. It covers the same territory at far greater length, organised by symptom and written for encyclopedia editors, so a good deal of it is wiki-specific. Read it if you want the exhaustive version. Nothing here is adapted from it: it is CC BY-SA, `tanka` is CC BY, and the two are organised on opposite principles.

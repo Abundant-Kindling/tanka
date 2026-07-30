@@ -1,6 +1,6 @@
 {
   "name": "tanka",
-  "description": "Cut a long document to what a reader needs, put a five-line summary on top they can act on, and strip the signatures of machine-written prose. Kills over-communication: restatement, implied consequences spelled out, background before the ask. Carries the house-style register pass too: Australian English, sentence case, no em dashes, plain verbs. Pairs with the human-voice skill for the full machine-tells catalogue.",
+  "description": "Cut a long document to what a reader needs, put a five-line summary on top they can act on, and strip the signatures of machine-written prose. Kills over-communication: restatement, implied consequences spelled out, background before the ask. Carries a register pass organised around one measure, checkable facts per hundred words.",
   "version": "0.2.0",
   "author": {
     "name": "Alex Hender"

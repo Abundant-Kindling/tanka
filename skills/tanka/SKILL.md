@@ -329,18 +329,46 @@ So the test is the same test:
 
 **Does this sentence tell the reader something they did not know, or does it tell them how to feel about something they already read?**
 
-The full catalogue of machine tells is a separate skill, **[human-voice](https://github.com/Abundant-Kindling/human-voice)**. Install it alongside this one and invoke it when running a register pass, when a draft reads wrong and nobody can name why, or when asked whether something looks machine-written. It is voice-neutral: it removes the tells and imposes no house style, which is why the two are separate skills rather than one. Tanka decides what a document says and in what order, then hands the sentence-level pass to it.
+This section is short on purpose. A catalogue organised by symptom runs to hundreds of entries and still misses the next one, because the symptoms change with every model release and the trade underneath them does not. Organised by the trade, it is one question asked over and over: **what checkable thing left, and what arrived to cover the gap?**
 
-Without `human-voice` installed, run the six rules below. They are the house-style layer and they are load-bearing on their own:
+### The substitutions
+
+Every row is the same move. Something a reader could verify was cut, and something unfalsifiable took its place. The fix is never to delete the filler and stop. It is to put the specific thing back.
+
+| What left | What arrived | Put back |
+|---|---|---|
+| A date, a figure, a decision | Significance. "Played a pivotal role", "a key milestone", "represents a significant step forward" | The date, the figure, the decision |
+| A named source | Authority with nobody's name on it. "Experts suggest", "industry reports indicate", "it is widely regarded" | The name, or own the claim as your own judgement |
+| One true item | Three, for the rhythm, with two invented to fill the triad | The one that is true |
+| A plain verb | A stiff one. "Serves as", "boasts", "leverages", "underscores", "utilised" | Is, has, uses, shows, used |
+| The content of a contrast | Scaffolding for one. "Not merely X, but Y". "Rather than X, it is Y" | Y. The reader never needed X ruled out |
+| Something to report | Symmetry. Every section the same length whether or not it had anything in it | Nothing. Cut the section |
+| An ending | A recap of what was just read, or a gesture at challenges and future direction | A full stop |
+
+The last two are what a reader feels but cannot name. A document whose sections all run to the same length was written to a shape rather than to its content, and a close that restates the document is the over-communication rule again, one level down.
+
+**The most reliable signal is not in that table, because it is arithmetic rather than style.** Count the checkable facts per hundred words: dates, figures, names, quantities, decisions. In prose that has made this trade, that count falls while the word total holds. Everything in the table is a symptom of the falling count. When a draft reads wrong and nobody can say why, measure it before theorising about it.
+
+### House style
+
+Six rules. These are house style, not universal law, and another organisation would set them differently.
 
 - **Australian English, British diction.** Colour, organisation, behaviour, recognise. Hold it throughout, including headings, captions and table cells. Code identifiers keep their own language's conventions
 - **Sentence case headings.** Not Title Case
-- **No em dashes.** Comma, colon, full stop or brackets, whichever the sentence wants. Models use them at roughly triple the human rate and always for the same emphatic beat
+- **No em dashes.** Comma, colon, full stop or brackets, whichever the sentence wants. Models reach for them heavily and almost always for the same emphatic beat, so they read as a signature whether or not any particular one was machine-written
 - **Plain verbs.** "Is" not "serves as", "has" not "boasts", "used" not "utilised". Compression means fewer words, never stiffer ones
 - **Name the source or own the claim.** "Experts suggest" and "industry reports indicate" are figures with nobody's name on them, and a reader who acts on one cannot check it
-- **Search every draft for residue before it ships.** Chat addressed to the operator, `[Your Name]`, `oaicite`, `utm_source=chatgpt.com`. They cost nothing to check and are unanswerable when found
+- **One word per thing.** Pick the term and keep it. Rotating through synonyms to avoid repeating yourself makes a reader wonder whether the second word means something different
 
-**Never use this to accuse a colleague of machine-writing.** Tells cluster, no single one proves anything, and detection tools score badly enough that a percentage is not evidence. This is a revision tool for your own drafts and a diagnostic for text you have been asked to assess. Being wrong about it is worse than the thing it detects.
+### Residue
+
+Free to check, and conclusive when found. Search every draft before it ships:
+
+`oaicite`, `contentReference`, `turn0search`, `utm_source=chatgpt.com`, `[Your Name]`, `[Insert `, `XX-XX`, any citation whose URL does not resolve, and chat addressed to the operator rather than the reader ("Certainly! Here is the revised version").
+
+None of this is a judgement call. If it is present, it shipped by accident, and it is the one part of a register pass that can be automated outright.
+
+**Never use any of this to accuse a colleague of machine-writing.** Tells cluster, no single one proves anything, human writing is drifting toward the same patterns by exposure, and detection tools score badly enough that a percentage is not evidence. This is a revision tool for your own drafts and a diagnostic for text you have been asked to assess. Being wrong about it is worse than the thing it detects.
 
 ## Structural bloat is a parsing job
 
@@ -418,7 +446,7 @@ Run over a finished pass:
 15. Every "serves as" back to "is", every "boasts" back to "has"?
 16. Every unnamed authority named, or the claim owned? No "experts suggest"
 17. Search for residue: `oaicite`, `contentReference`, `utm_source=`, `[Your Name]`, `XX-XX`
-18. For a full register pass, invoke the `human-voice` skill rather than stopping at these six lines
+18. Count checkable facts per hundred words. If the count fell while the length held, the cutting pass put filler back in
 
 **Before it goes**
 
@@ -429,6 +457,6 @@ Run over a finished pass:
 
 ## Licence
 
-Copyright Alex Hender. Released under **[Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)**. Copy it, adapt it, redistribute it, including commercially. Credit the source. No obligation to licence your version under the same terms.
+Copyright Alex Hender. Released under **[Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)**. Copy it, adapt it, redistribute it, including commercially. Credit the source. You are under no obligation to licence your version under the same terms.
 
-This skill is original work. The share-alike material lives in `human-voice`, which is a separate skill under CC BY-SA 4.0 because it is adapted from Wikipedia's *[Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)*. Keeping the two apart is what lets this one stay permissive. Combining them in a redistributed work would pull the result under share-alike.
+Original work throughout, which is what makes the permissive licence available. Wikipedia's *[Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)* is worth reading and covers the same territory at far greater length, organised by symptom and written for encyclopedia editors. It is CC BY-SA, so it is cited here as further reading and nothing is adapted from it.
