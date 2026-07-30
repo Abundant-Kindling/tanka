@@ -4,9 +4,11 @@ Ground-truth document for this repo. Read it before starting work, keep it true 
 
 ## What this is
 
-A single Claude Skill, `tanka`, that restructures long documents into three layers a reader can stop at, compresses the ones that are genuinely padded, and strips the signatures of machine-written prose. Built 29 Jul 2026 in response to RenewCORP internal comms blowing out to five, ten, twenty pages when the load-bearing content would fit in three dot points.
+A single Claude Skill, `tanka`, that restructures long documents into three layers a reader can stop at, compresses the ones that are genuinely padded, and strips the signatures of machine-written prose. Built 29 Jul 2026 in response to a client's internal comms blowing out to five, ten, twenty pages when the load-bearing content would fit in three dot points.
 
-**It is a public tool as of 30 Jul 2026**, CC BY 4.0, built for RenewCORP internal comms and shared beyond them. The 29 Jul "RenewCORP-only" scoping is superseded; see that section below for what survives of it.
+**It is a public tool as of 30 Jul 2026**, CC BY 4.0, built for one client's internal comms and shared beyond them. The 29 Jul single-client scoping is superseded; see that section below for what survives of it.
+
+**This repo is public. Client identity is not recorded here.** The engagement is referred to as "the client" throughout, and the reasoning is kept because the reasoning is generic. Names, plan tiers, org structure and internal paths live in the private handoff notes. See the lesson under Visibility, which this document previously stated and then broke fifteen times.
 
 The deliverable is one file, `skills/tanka/SKILL.md`. Everything else in the repo exists to distribute it or to teach it. It is self-contained: no companion skill, no `references/`, no external dependency. `human-voice` is retired, see below.
 
@@ -61,7 +63,7 @@ There is no `references/` directory as of 30 Jul 2026. `build.sh` does `cp -r` o
 
 **This repo is public as of 30 Jul 2026. Real client documents and client detail must never enter it, and there is no longer a private window in which a mistake can be caught.**
 
-Test material lives at `~/RCDev/.tanka-testdata/`, outside the repo. That is the primary control.
+Test material lives in a drop zone outside the repo, under the client-scoped dev root rather than this one. That is the primary control.
 
 `examples/` is the secondary control, and it exists because the drop zone and the repo sit next to each other and material kept landing in `examples/` anyway. It is now `.gitignore`d **deny-by-default**: everything in it is invisible to git unless its filename is explicitly whitelisted. Adding a committed example means adding its name to the whitelist on purpose.
 
@@ -79,9 +81,9 @@ The consequence that matters: the "set it private and think" escape hatch used o
 
 `gh repo view --json visibility` reported `PUBLIC` for a repo that `gh api` reported as `private=true`, while the local remote still pointed at the old org. Anonymous `curl` against `api.github.com` agreed with `gh api`. **Do not trust `gh repo view` across an org rename.** Use `gh api`, or better, an unauthenticated request, which is the only check that tests what a stranger actually sees. This mattered on 30 Jul 2026 when a public repo was briefly about to ship links to a private one.
 
-Confirmed against Anthropic's documentation 29 Jul 2026: the organisation route is a `.zip` upload at **Organisation settings → Skills**, with no GitHub involvement at all. Repo visibility is irrelevant to RenewCORP distribution. Alex is an org owner and RenewCORP is on Team, so both prerequisites are met.
+Confirmed against Anthropic's documentation 29 Jul 2026: the organisation route is a `.zip` upload at **Organisation settings → Skills**, with no GitHub involvement at all. Repo visibility is irrelevant to it. The prerequisites are org-owner rights and a Team or Enterprise plan, both confirmed met for the engagement in question.
 
-Public would only matter for the Claude Code plugin marketplace route, and not even strictly there: Claude Code supports private-repo marketplaces through existing git credential helpers, with the caveat that background auto-updates disable those helpers and fall back to re-cloning. RenewCORP staff are not the audience for a Claude Code plugin in any case.
+Public would only matter for the Claude Code plugin marketplace route, and not even strictly there: Claude Code supports private-repo marketplaces through existing git credential helpers, with the caveat that background auto-updates disable those helpers and fall back to re-cloning. The client's staff are not the audience for a Claude Code plugin in any case.
 
 Publishing is therefore a separate decision about whether to release the skill publicly, not a prerequisite for using it. It is not blocked.
 
@@ -108,7 +110,7 @@ Verified clean on this repository by two independent checks:
 - The purged SHA returns `422 No commit found`
 - A full `--mirror` clone, scanning every object rather than every commit, returns zero hits against a client-term pattern
 
-**Outstanding, and now more urgent.** The leaked repo still exists, still private, and still holds the object. Check both `theclockworkcloud` and `Abundant-Kindling` for it: the 30 Jul org move may or may not have carried it across, and a repo holding client detail must not end up sitting in the same org as two public repos. It needs deleting. That requires the `delete_repo` scope, which the session token does not carry, so it is Alex's action: the GitHub web UI, or `gh auth refresh -s delete_repo` first.
+**Closed 30 Jul 2026.** The quarantined repo is gone. `gh api` returns 404 for it under both the old and new owner, and the old owner is now a user account with `repos=0`, everything having moved to the org. The unreachable object went with the repository that held it.
 
 The leaked SHA is deliberately not recorded in this file. Writing it down here would hand a reader the one thing they would need.
 
@@ -116,7 +118,9 @@ The leaked SHA is deliberately not recorded in this file. Writing it down here w
 
 Three controls existed and none of them caught this. `.gitignore` guards against client *files* arriving. The drop zone keeps client material outside the repo. Neither touches a tracked file that a well-meaning author *writes* client content into, and the ground-truth document is exactly the file that wants naming names, because naming them is what makes it useful.
 
-**A ground-truth document in a publishable repo describes the work generically or not at all.** Specifics go to `rc-handoff.md`, which is private.
+**A ground-truth document in a publishable repo describes the work generically or not at all.** Specifics go to the private handoff notes.
+
+**This rule was written on 29 Jul and broken in the same file until 30 Jul**, when the repo went public with the client named fifteen times, along with their plan tier and internal paths. Writing a rule down is not the same as following it, and the file that states a rule is the last place anyone looks for a violation of it.
 
 ## Distribution
 
@@ -124,27 +128,27 @@ Three routes, two live and one blocked:
 
 1. **Claude Code plugin.** `/plugin marketplace add Abundant-Kindling/tanka` then `/plugin install tanka@tanka`. Installs per user
 2. **Claude.ai personal.** Upload `dist/tanka.zip` at Settings → Capabilities → Skills
-3. **Claude.ai organisation.** An admin uploads the same zip at claude.com → Organisation settings → Skills. Everyone in the org gets it. This is the RenewCORP route, because the plugin route does not propagate across an organisation
+3. **Claude.ai organisation.** An admin uploads the same zip at claude.com → Organisation settings → Skills. Everyone in the org gets it. This is the client route, because the plugin route does not propagate across an organisation
 
-### Tanka is RenewCORP-only
+### Tanka was scoped to one client
 
-**Superseded 30 Jul 2026.** Tanka is a public tool, shared under CC BY 4.0, and Alex intends to write about it publicly. The RC-only scoping was made when the repo was private and the skill was an internal RenewCORP fix. It is not that any more.
+**Superseded 30 Jul 2026.** Tanka is a public tool, shared under CC BY 4.0, and Alex intends to write about it publicly. The single-client scoping was made when the repo was private and the skill was an internal fix. It is not that any more.
 
-The scoping question is also now moot in the direction that mattered. It was really a question about whether the register pointer would resolve for the RC team, who are served by the Claude.ai org zip upload rather than by Alex's dotfiles. The skill is self-contained, so there is no pointer and nothing to resolve. One zip carries everything.
+The scoping question is also now moot in the direction that mattered. It was really a question about whether the register pointer would resolve for the client's team, who are served by the Claude.ai org zip upload rather than by Alex's dotfiles. The skill is self-contained, so there is no pointer and nothing to resolve. One zip carries everything.
 
-What survives from the old decision: tanka is still the right tool for RC internal comms and the org upload is still the RC distribution route. What is dropped: the instruction to remove it from AK. It stays in both accounts.
+What survives from the old decision: tanka is still the right tool for the client's internal comms and the org upload is still their distribution route. What is dropped: the instruction to remove it from the other account. It stays in both.
 
-This inverts the previous open item. `~/AKDev/dotfiles/skills/tanka` is a symlink into this repo and `deploy-skills.sh` pushes it into **both** `~/.claude-ak/skills/` and `~/.claude-rc/skills/`, which is now the wrong behaviour: AK should not receive it.
+This inverts the previous open item. The dotfiles repo symlinks this skill into both account config directories, which the single-client scoping briefly made wrong.
 
-**Outstanding, and it is an AK-session action.** Streams do not cross, so this cannot be done from RC:
+**Outstanding, and it belongs to the account that owns this repo.** The two accounts are kept separate deliberately, so this cannot be done from the other one:
 
-**Dropped 30 Jul 2026.** Tanka stays deployed to both accounts. The `~/AKDev/dotfiles/skills/tanka` symlink stays. A per-account allowlist in `deploy-skills.sh` is still the better mechanism if a future skill genuinely needs to target one account, but nothing needs it today.
+**Dropped 30 Jul 2026.** Tanka stays deployed to both accounts, and the dotfiles symlink stays. A per-account allowlist in the deploy script is still the better mechanism if a future skill genuinely needs to target one account, but nothing needs it today.
 
 If one is ever built, do not solve it by copying a skill into dotfiles as a real directory. Everything under `dotfiles/skills/` is a symlink to its source repo and should stay that way, because a copy drifts.
 
 ## Conventions
 
-- **No em dashes.** Anywhere. Skill text, README, manifests, examples, commit messages, PR text. Ruled 24 Jul 2026. The skill now states the rule itself, under Register in `SKILL.md`, so it no longer depends on a skill the RC team does not have
+- **No em dashes.** Anywhere. Skill text, README, manifests, examples, commit messages, PR text. Ruled 24 Jul 2026. The skill states the rule itself, under Register in `SKILL.md`, so it depends on no other skill being installed
 - Australian English, British diction
 - Dates DD Mon YYYY
 - Sentence case headings
@@ -155,7 +159,7 @@ If one is ever built, do not solve it by copying a skill into dotfiles as a real
 
 Built, verified, merged and deployed 29 Jul 2026 in a single session. PRs #1, #2 and #3 merged and their branches deleted. Confirmed resolving by name and loading through the `Skill` tool.
 
-**Amended 29 Jul 2026:** `human-voice` folded in as a register pass, `alex-voice` references dropped, licence moved to CC BY-SA 4.0, and the skill scoped to RenewCORP only.
+**Amended 29 Jul 2026:** `human-voice` folded in as a register pass, `alex-voice` references dropped, licence moved to CC BY-SA 4.0, and the skill scoped to one client.
 
 **Settled 30 Jul 2026.** The Wikipedia-derived catalogue is gone, replaced by an original register section organised around the compression trade. Licence CC BY 4.0. Repo public under `Abundant-Kindling`. `human-voice` retired and archived, its useful substance surviving here and in the two private voice skills. See the decisions table. All of it sits on `alex/fold-human-voice-into-tanka`, PR #4.
 
@@ -181,6 +185,8 @@ Where the words went, and it was not from cutting rules:
 
 Deferred work, written at the moment of deferral. Tiers: blocker (never appears here; blockers are fixed, not listed), papercut, polish. One line each, with date.
 
+- [blocked-on-alex] 30 Jul - **Client identity was public in this repo for roughly an hour and remains in git history.** The repo went public 30 Jul with `claude.md` naming the client fifteen times, plus their plan tier, org-owner status and internal dev paths, and `rollout-announcement.md` naming them once. Both are neutralised at HEAD. **Neither is removed from history.** The content entered `main` in squash commit `3091f69` and is fetchable by SHA regardless of later commits, which is the same lesson this repo already learned on 29 Jul. Alex's call on whether to leave it: the exposure is a named client using a writing tool and having verbose internal comms, with no figures, commercials or credentials, so a history rewrite of a public repo with merged PRs is likely disproportionate. Recorded rather than decided
+
 - [closed] 30 Jul - ~~The leaked repo still exists.~~ **Verified gone.** `gh api repos/{theclockworkcloud,Abundant-Kindling}/tanka-leaked-delete-me` returns 404 for both, and `theclockworkcloud` is now a user account with `repos=0`, everything having moved to the org. The object went with the repo
 - [papercut] 30 Jul - `README.md` in both repos links to `/releases`, but no release assets confirmed under the new org. Cut a release or drop the link
 - [papercut] 30 Jul - The rewritten register section has never been run against a real document. It is new prose, not carried-over prose
@@ -190,9 +196,8 @@ Deferred work, written at the moment of deferral. Tiers: blocker (never appears 
 
 ### Open items at session close
 
-1. **Upload `dist/tanka.zip` to Organisation settings → Skills.** Rebuild it first with `./build.sh`. Prerequisites confirmed met: Alex is an org owner, RenewCORP is on Team. The old sub-item here, verifying that `references/machine-tells.md` survived the zip, is void: there are no supporting files left to verify. The zip is now `SKILL.md` plus `LICENSE`
-2. **Remove tanka from AK.** Delete the `~/AKDev/dotfiles/skills/tanka` symlink, or add a per-account allowlist to `deploy-skills.sh`. **AK-session action.** This replaces the old item, which said to commit that symlink, and which the RC-only decision reversed
-3. **`rc-handoff.md` has an entry appended and uncommitted,** same AK-session constraint
+1. **Upload `dist/tanka.zip` to Organisation settings → Skills.** Rebuild it first with `./build.sh`. Prerequisites confirmed met. The old sub-item here, verifying that `references/machine-tells.md` survived the zip, is void: there are no supporting files left to verify. The zip is now `SKILL.md` plus `LICENSE`
+2. ~~Remove tanka from the other account.~~ **Dropped 30 Jul 2026.** The skill is public and stays deployed to both
 4. **Consider trimming the `delete_repo` scope** from the `gh` token. It was granted for one deletion and persists
 5. **Send the rollout announcement.** Drafted at `rollout-announcement.md`, unsent, and sequenced **after** the org upload because it tells people the tool is already there. Sending it first makes a liar of it
 6. **The register pass is unverified against real documents.** Every other rule in this skill earned its place by breaking on a real client document first, per the fourteen defects below. **Restated 30 Jul 2026:** the register section was rewritten from scratch that day, so it has even less standing than before. Next session, put a real machine-drafted internal document through a full pass and check two things: that the structure pass and the register pass do not fight, and that the facts-per-hundred-words measure actually discriminates between a padded draft and a dense one
@@ -227,4 +232,4 @@ Documents used, all real, all held outside the repo and none named here: a 21-pa
 
 Running the skill surfaced real defects in the source documents: a fee line open to a reading two orders of magnitude out, a version number contradicting itself across a cover and an executive summary, a priced site missing from its own verification data, one site recorded under two names, four different counts of the same portfolio, and placeholder metadata on two client-facing PDFs.
 
-Those are the reason the skill earns its keep, and they are recorded where they belong: reported to Alex directly, and to `rc-handoff.md`. Not here. This repo is public, and a ground-truth document is not a place to park client commercial detail.
+Those are the reason the skill earns its keep, and they are recorded where they belong: reported to Alex directly, and to the private handoff notes. Not here. This repo is public, and a ground-truth document is not a place to park client commercial detail.
