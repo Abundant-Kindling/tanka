@@ -1,6 +1,6 @@
 # tanka
 
-A Claude Skill that cuts a long document down to what a reader needs, and puts a five-line summary on top they can act on.
+A Claude Skill that cuts a long document down to what a reader needs, puts a five-line summary on top they can act on, and strips the signatures of machine-written prose.
 
 A tanka is 31 syllables across five lines. There is no room in it for filler, so it carries only what matters. That is the standard the skill applies, and the five-line cap on the summary is literal.
 
@@ -26,7 +26,7 @@ Each layer is a complete answer at its own depth. Layer 3 loses nothing, which i
 
 ## What it does
 
-Five modes, selected by what you ask for:
+Six modes, selected by what you ask for:
 
 | Ask | Mode | Effect |
 |---|---|---|
@@ -34,6 +34,7 @@ Five modes, selected by what you ask for:
 | "sort this out", "make this readable" | **Restructure** | The three layers. Nothing cut |
 | "cut this down", "tighten this" | **Compress** | Rewrites throughout. For genuinely padded documents |
 | "is this too long?" | **Diagnose** | Reports what is wrong and which treatment fits. Changes nothing |
+| "does this read as AI?" | **Register** | Removes the machine tells. Structure untouched |
 | drafting something new | **Author brief** | Applies at draft time so the document comes out short |
 
 Restructure is the right answer more often than compress.
@@ -51,20 +52,20 @@ It reports the reduction it actually achieved rather than the one you hoped for.
 ### Claude Code
 
 ```
-/plugin marketplace add theclockworkcloud/tanka
+/plugin marketplace add Abundant-Kindling/tanka
 /plugin install tanka@tanka
 ```
 
 Or clone and symlink the skill into your config:
 
 ```bash
-git clone https://github.com/theclockworkcloud/tanka.git
+git clone https://github.com/Abundant-Kindling/tanka.git
 ln -s "$PWD/tanka/skills/tanka" ~/.claude/skills/tanka
 ```
 
 ### Claude.ai, personal
 
-Download `tanka.zip` from [Releases](https://github.com/theclockworkcloud/tanka/releases), then **Settings → Capabilities → Skills → Create skill** and upload it.
+Download `tanka.zip` from [Releases](https://github.com/Abundant-Kindling/tanka/releases), then **Settings → Capabilities → Skills → Create skill** and upload it.
 
 To build the zip yourself: `./build.sh`
 
@@ -74,15 +75,28 @@ An admin uploads the same zip at **claude.com → Organisation settings → Skil
 
 The plugin route installs per user and does not propagate across an organisation. If you want a team to have this without each person installing it, the admin zip upload is the path.
 
-## Using it with other skills
+## The register pass
 
-`tanka` works on structure and information density. It deliberately says nothing about register or voice, because two other skills own those:
+Structure is half the job. The other half is what the document sounds like, and a restructured document still reads as machine-written if it is full of things that stand as a testament to a broader shift in the evolving landscape.
 
-- [`human-voice`](https://github.com/theclockworkcloud/human-voice) removes the signatures of machine-written prose
-- `alex-voice` applies one person's voice
+So the skill carries a register pass as well. It runs **last**, because structural cuts change what prose is left to work on and polishing before cutting wastes the polish.
 
-Run `tanka` first. Structural cuts change what prose is left to work on, so polishing before cutting wastes the polish.
+Both halves come from one cause. Over-communication and machine register are the same trade: the specific thing leaves, and volume arrives to cover the gap. A blockers list followed by "if these are not resolved I cannot proceed" and a paragraph closing with "underscoring its importance to the broader programme" are the same sentence in different clothes.
+
+So the register pass is organised by that trade rather than as a catalogue of tells. Each entry names what checkable thing was cut and what unfalsifiable thing replaced it: a date replaced by significance, a named source replaced by "experts suggest", one true item padded to three for the rhythm, an ending replaced by a recap of what the reader just read. The fix is never to delete the filler. It is to put the specific thing back.
+
+Underneath the whole section sits one measurement: **checkable facts per hundred words.** Dates, figures, names, quantities, decisions. In prose that has made this trade the count falls while the length holds, and every stylistic tell is a symptom of that. When a draft reads wrong and nobody can say why, count before theorising.
+
+Six house-style rules sit alongside it: Australian English with British diction, sentence case headings, no em dashes, plain verbs over stiff ones, name the source or own the claim, one word per thing.
+
+**It is not an accusation tool.** Tells cluster, no single one proves anything, and detection scores are not evidence.
 
 ## Licence
 
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Copy it, adapt it, redistribute it, including commercially. Credit the source.
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Copy it, adapt it, redistribute it, including commercially. Credit Alex Hender and link the licence. You are not obliged to licence your version under the same terms.
+
+Original work throughout, which is what makes the permissive licence available.
+
+## Further reading
+
+Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) is the most thorough public catalogue of machine-prose tells there is, maintained by the people with the strongest incentive to spot them. It covers the same territory at far greater length, organised by symptom and written for encyclopedia editors, so a good deal of it is wiki-specific. Read it if you want the exhaustive version. Nothing here is adapted from it: it is CC BY-SA, `tanka` is CC BY, and the two are organised on opposite principles.

@@ -4,18 +4,18 @@
   "description": "A single-skill marketplace: tanka, a brevity pass that summarises a long document in five lines and cuts the body to what a reader needs.",
   "owner": {
     "name": "Alex Hender",
-    "url": "https://github.com/theclockworkcloud"
+    "url": "https://github.com/Abundant-Kindling"
   },
   "plugins": [
     {
       "name": "tanka",
-      "description": "Cut a long document to what a reader needs, and put a five-line summary on top they can act on. Kills over-communication: restatement, implied consequences spelled out, background before the ask.",
+      "description": "Cut a long document to what a reader needs, put a five-line summary on top they can act on, and strip the signatures of machine-written prose. Kills over-communication: restatement, implied consequences spelled out, background before the ask. Carries a register pass organised around one measure, checkable facts per hundred words.",
       "author": {
         "name": "Alex Hender"
       },
       "category": "writing",
       "source": "./",
-      "homepage": "https://github.com/theclockworkcloud/tanka",
+      "homepage": "https://github.com/Abundant-Kindling/tanka",
       "license": "CC-BY-4.0"
     }
   ]
