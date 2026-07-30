@@ -37,6 +37,7 @@ Layer 3 loses nothing, which is what makes the treatment safe on contracts, cost
 | **Organised by the trade, not by symptom** | The replacement principle, and it is tanka's own. Wikipedia organises by symptom for detection by encyclopedia editors. Tanka organises by the compression trade it already teaches: what checkable thing left, and what arrived to cover the gap. Same phenomena, different axis, and roughly 40 lines instead of 278 because a trade generalises where a symptom list does not. The load-bearing addition is a measurement, **checkable facts per hundred words**, which is not in the source and follows from the repo's own measure-never-estimate rule |
 | **Licence: CC BY 4.0** | Alex's call, 30 Jul 2026. Share-alike was never chosen, it was inherited, and removing the inherited material removes the obligation. Wikipedia's article is now cited as **further reading only**, which creates no derivative relationship. Facts and observations are not copyrightable and overlap on them is expected and fine |
 | Public repo, Abundant-Kindling org | Moved from `theclockworkcloud` and made public, 30 Jul 2026. **The client-data controls below were written when this was private. They now run live.** See Visibility |
+| **`SKILL.md` holds decision rules only** | Settled 30 Jul 2026 by the compress pass. Anything that is a look-up surface, or that addresses a reader other than the model running the pass, belongs in `README.md` or behind a `references/` pointer. **Structural bloat is a parsing job** was the test case: pipeline-engineering advice, loaded on every invocation, and nobody it was written for was ever in the room. This is the three-layer model applied to the skill itself |
 | One ground-truth doc | This file. No separate spec under `docs/`, because two overlapping ground-truth documents is the staleness trap |
 
 ## Layout
@@ -158,25 +159,33 @@ Built, verified, merged and deployed 29 Jul 2026 in a single session. PRs #1, #2
 
 **Settled 30 Jul 2026.** The Wikipedia-derived catalogue is gone, replaced by an original register section organised around the compression trade. Licence CC BY 4.0. Repo public under `Abundant-Kindling`. `human-voice` retired and archived, its useful substance surviving here and in the two private voice skills. See the decisions table. All of it sits on `alex/fold-human-voice-into-tanka`, PR #4.
 
-**Size, measured 30 Jul 2026 with `wc -l -w` after the register rewrite:**
+**Size, measured 30 Jul 2026 with `wc -l -w` after the compress pass:**
 
 | File | Lines | Words | Loaded |
 |---|---|---|---|
-| `SKILL.md` | 462 | 6,044 | Every time the skill fires |
+| `SKILL.md` | 332 | 4,701 | Every time the skill fires |
 
-The whole skill is now one file. Trajectory across the day: 434 lines and 5,577 words with the catalogue behind a pointer, 434 and 5,604 after the pointer was swapped for a skill reference, 462 and 6,044 with the register section written inline. Net across the day: the 278-line, 2,869-word `references/machine-tells.md` was deleted and roughly 440 words of original register material replaced it in the always-loaded file.
+Trajectory across the day: 434 lines and 5,577 words with the Wikipedia catalogue behind a pointer, 462 and 6,044 with the original register section written inline, then 332 and 4,701 after the skill was finally run over itself.
 
-**Watch `SKILL.md`.** Anthropic's documented budget for the body is under 5k tokens and it is already past that at roughly 7.5k. The skill is reference material and exempt from its own compress pass, but a brevity skill has a credibility ceiling and this is at it. **Prefer replacing a section over adding one, and prefer `references/` over both.** Anything that is a look-up surface rather than a decision rule belongs behind a pointer.
+**The compress pass, reported the way the skill demands.** 22 per cent of the words, and **zero facts lost**, verified mechanically rather than by eye: a script extracted every currency amount, percentage, page count and multi-digit figure from the old file and diffed the set against the new `SKILL.md` plus `README.md`. Empty. The same check confirmed all six modes and every never-cut item survived.
+
+Where the words went, and it was not from cutting rules:
+
+- The twelve over-communication patterns were twelve subsections of prose. They are now twelve rows of a table. Same twelve patterns, same examples, same fixes
+- Explanation became instruction throughout. The file argued for each rule in the register of a ground-truth document, which is right for `claude.md` and wrong for a skill body a model reads in order to act
+- **Structural bloat is a parsing job** moved to `README.md` in full, numbers intact. It addresses whoever builds the ingestion pipeline, not the pass, so it was costing context on every single invocation to serve a reader who was not there
+
+**Watch `SKILL.md`.** Anthropic's documented budget for the body is under 5k tokens and it is past that at roughly 6.3k, down from 8.0k. The skill is reference material and exempt from its own compress pass, but a brevity skill has a credibility ceiling and this is at it. **Prefer replacing a section over adding one, and prefer `references/` over both.** Anything that is a look-up surface rather than a decision rule belongs behind a pointer.
 
 ## Loose ends
 
 Deferred work, written at the moment of deferral. Tiers: blocker (never appears here; blockers are fixed, not listed), papercut, polish. One line each, with date.
 
-- [blocked-on-alex] 30 Jul - The leaked repo still exists and still holds the object. Check both `theclockworkcloud` and `Abundant-Kindling`. Needs `delete_repo` scope
+- [closed] 30 Jul - ~~The leaked repo still exists.~~ **Verified gone.** `gh api repos/{theclockworkcloud,Abundant-Kindling}/tanka-leaked-delete-me` returns 404 for both, and `theclockworkcloud` is now a user account with `repos=0`, everything having moved to the org. The object went with the repo
 - [papercut] 30 Jul - `README.md` in both repos links to `/releases`, but no release assets confirmed under the new org. Cut a release or drop the link
 - [papercut] 30 Jul - The rewritten register section has never been run against a real document. It is new prose, not carried-over prose
 - [papercut] 29 Jul - The register pass has never been run against a real machine-drafted document as part of tanka
-- [papercut] 30 Jul - `SKILL.md` is 6,044 words, roughly 8k tokens, against a documented 5k budget. It went up, not down, on the day it became a public artefact. A brevity skill 60 per cent over its own budget is a credibility problem, and the self-granted reference-material exemption is starting to look like special pleading. Prefer replacing a section over adding one, and consider a genuine compress pass before the article goes out
+- [blocked-on-alex] 30 Jul - `SKILL.md` is 4,701 words, roughly 6.3k tokens, still about 26 per cent over the documented 5k budget after a compress pass that cut 22 per cent and lost nothing. **The remaining content is rules, not prose.** Getting to 5k now means deleting capability, and the two candidates are the worked example (roughly 330 words, and a worked example calibrates output shape better than any rule does) and the checklist. Alex's call whether that trade is worth it. Doing it silently would be exactly the padded-cut this skill bans
 - [polish] 29 Jul - Consider trimming the `delete_repo` scope from the `gh` token, granted for one deletion and still held
 
 ### Open items at session close
