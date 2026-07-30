@@ -97,6 +97,26 @@ Six house-style rules sit alongside it: Australian English with British diction,
 
 Original work throughout, which is what makes the permissive licence available.
 
+## If you are piping email into this
+
+Guidance for whoever builds the pipeline, not for the pass itself, which is why it lives here rather than in `SKILL.md`.
+
+Raw email is mostly not writing. Measured on real mail out of Microsoft Graph, one message ran 301 KB of HTML around 120 words of content: markup outweighed text 11 to 1, across 164 nested tables and 1,182 namespace-prefixed classes.
+
+None of that is over-communication and none of it should reach a model. Four things account for nearly all of it, and all four are deterministic to remove:
+
+- Quoted reply chains (`From:` / `Sent:` / `To:` / `Subject:` blocks, `divRplyFwdMsg`, `x_`-prefixed nested content)
+- Signature blocks, especially those built as nested tables with `cid:` inline images
+- External-sender CAUTION banners and legal footers
+- Meeting-platform boilerplate: join URLs, meeting IDs, passcodes, "Need help?" links
+
+**Strip them in code before the model call, not with the model.** It is a parsing job, it costs nothing per message, and on a specimen like the one above it cuts input by an order of magnitude. Paying a model to read 164 tables of styling and then asking it to be concise is the wrong way round.
+
+Two cautions:
+
+- **A quoted reply chain is thread history, not padding.** Where the chain holds the only record of what was agreed, it is layer 3 content. Strip the `From:` / `Sent:` furniture and the repeated signatures, keep the prose
+- **Keep what the boilerplate contains.** A Teams block is boilerplate; a meeting scheduled inside it is a fact. Strip the join URL, keep the knowledge that a meeting exists
+
 ## Further reading
 
 Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) is the most thorough public catalogue of machine-prose tells there is, maintained by the people with the strongest incentive to spot them. It covers the same territory at far greater length, organised by symptom and written for encyclopedia editors, so a good deal of it is wiki-specific. Read it if you want the exhaustive version. Nothing here is adapted from it: it is CC BY-SA, `tanka` is CC BY, and the two are organised on opposite principles.
