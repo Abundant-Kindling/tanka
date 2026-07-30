@@ -1,10 +1,10 @@
-# Rollout announcement, draft
+# Rollout announcement: a template
 
-Drafted 29 Jul 2026. **Not yet sent.** It goes out after the zip is uploaded at Organisation settings → Skills, not before, because it tells people the tool is already there.
+If you are deploying `tanka` to a team, this is the note that goes out. Adapt the bracketed parts and send it.
 
-Written in author-brief mode, so it survives the skill's own checklist: the ask is line one, there is no ask so it says so, and it runs 295 words of body, 304 with the subject line. Both counted, not estimated.
+It is here because it is also a worked example of the skill's **author brief** mode: a document written short the first time rather than cut down afterwards. It survives the skill's own checklist. The ask is line one, there is no ask so it says so, and the body runs 292 words, 301 with the subject line. Counted with `wc`, not estimated, and recounted after every edit.
 
-Plain text by design. Outlook and Teams do not render markdown, and markdown leaking into a surface that does not render it is on the skill's own formatting-tells list. The two bold headings are the only formatting doing work, and they strip cleanly.
+Plain text by design. Outlook and Teams do not render markdown, and markdown leaking into a surface that does not render it is on the skill's own formatting-tells list. The two bold headings are the only formatting doing work and they strip cleanly.
 
 ---
 
@@ -12,7 +12,7 @@ Plain text by design. Outlook and Teams do not render markdown, and markdown lea
 
 For information. Nothing to action.
 
-Tanka is now in Claude for everyone at RenewCORP, no setup required.
+Tanka is now in Claude for everyone at [organisation], no setup required.
 
 It takes a long document and puts the ask on line one instead of page nineteen.
 
@@ -28,7 +28,7 @@ Paste or attach a document and ask in plain language. "Summarise this", "sort th
 
 Most documents that read badly are written fine and ordered wrong. The content is good, it just arrives in the wrong sequence, and the thing you needed is at the bottom. Tanka reorders it into three layers: five lines at the top, a one-page summary, then the full document underneath. You stop wherever you have enough.
 
-Nothing gets deleted in that mode. Every figure, date, deadline, name and commitment survives. It also refuses to compress documents where the detail is the point, so a twenty-page costing keeps all twenty pages and gains a summary a client or a manager can act on.
+Nothing gets deleted in that mode. Every figure, date, deadline, name and commitment survives. It also refuses to compress documents where the detail is the point, so a twenty-page costing keeps all twenty pages and gains a summary a manager can act on.
 
 It has a second half that strips the tells of AI-written prose, if you want a draft checked before it goes out.
 
@@ -42,12 +42,16 @@ Anything else, ask me.
 
 ---
 
-## Choices worth revisiting before it goes
+## Why it is shaped this way
 
-**No mandate.** Nobody is told to use it. A writing tool pushed at people gets resented, and the invitation to report failures is the buy-in mechanism. It is also a real offer: all fourteen fixes in the skill came from documents breaking it.
+**No mandate.** Nobody is told to use it. A writing tool pushed at people gets resented, and the invitation to report failures is the buy-in mechanism. It is also a real offer: every fix in the skill so far came from a document breaking it.
 
-**The accusation warning earned its place.** Handing a team an AI-detection catalogue without it is how you end up refereeing a dispute about whether someone's status report was written by a machine.
+**The accusation warning earns its place.** Handing a team an AI-detection catalogue without it is how you end up refereeing a dispute about whether someone's status report was written by a machine.
 
 **Deliberately left out:** the licence, the three-layer terminology, the mode names, the word counts, anything about how it was built. None of it changes what a reader does next.
 
-**Not written yet:** a shorter Teams-post cut, and a version aimed at whoever writes the long proposals, who are the people with the most to gain and the least spare time to try something new.
+**Worth writing separately:** a shorter cut for Teams or Slack, and a version aimed at whoever writes the long proposals. They have the most to gain and the least spare time to try something new.
+
+## Sequencing
+
+Send it **after** the skill is actually deployed, not before. The note says the tool is already there, so sending it first makes a liar of it.
