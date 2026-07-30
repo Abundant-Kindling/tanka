@@ -2,7 +2,7 @@
 
 A Claude Skill that cuts a long document down to what a reader needs, puts a five-line summary on top they can act on, and strips the signatures of machine-written prose.
 
-A tanka is 31 syllables across five lines. There is no room in it for filler, so it carries only what matters. That is the standard the skill applies, and the five-line cap on the summary is literal.
+A tanka is 31 sounds across five lines. There is no room in it for filler, so it carries only what matters. That is the standard the skill applies, and the five-line cap on the summary is literal.
 
 ## The problem it solves
 
