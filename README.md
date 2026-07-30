@@ -52,20 +52,20 @@ It reports the reduction it actually achieved rather than the one you hoped for.
 ### Claude Code
 
 ```
-/plugin marketplace add theclockworkcloud/tanka
+/plugin marketplace add Abundant-Kindling/tanka
 /plugin install tanka@tanka
 ```
 
 Or clone and symlink the skill into your config:
 
 ```bash
-git clone https://github.com/theclockworkcloud/tanka.git
+git clone https://github.com/Abundant-Kindling/tanka.git
 ln -s "$PWD/tanka/skills/tanka" ~/.claude/skills/tanka
 ```
 
 ### Claude.ai, personal
 
-Download `tanka.zip` from [Releases](https://github.com/theclockworkcloud/tanka/releases), then **Settings → Capabilities → Skills → Create skill** and upload it.
+Download `tanka.zip` from [Releases](https://github.com/Abundant-Kindling/tanka/releases), then **Settings → Capabilities → Skills → Create skill** and upload it.
 
 To build the zip yourself: `./build.sh`
 
@@ -81,9 +81,9 @@ Structure is half the job. The other half is what the document sounds like, and 
 
 So the skill carries a register pass as well. It runs **last**, because structural cuts change what prose is left to work on and polishing before cutting wastes the polish.
 
-Six rules sit in `SKILL.md`: Australian English with British diction, sentence case headings, no em dashes, plain verbs over stiff ones, name the source or own the claim, and search every draft for chat residue before it ships.
+Six rules sit in `SKILL.md`: Australian English with British diction, sentence case headings, no em dashes, plain verbs over stiff ones, name the source or own the claim, and search every draft for chat residue before it ships. That is the house-style layer, and it stands on its own.
 
-The full catalogue lives in `skills/tanka/references/machine-tells.md` and loads only when a register pass actually runs. It covers content tells, language tells, formatting tells, residue tells that are conclusive on sight, and a list of things that get wrongly flagged and are not tells at all.
+The full catalogue of machine tells is a separate skill, **[human-voice](https://github.com/Abundant-Kindling/human-voice)**. Install it alongside this one and `tanka` hands the sentence-level pass to it. It covers content tells, language tells, formatting tells, residue tells that are conclusive on sight, and a list of things that get wrongly flagged and are not tells at all. Two skills rather than one because they do different jobs: `human-voice` is voice-neutral and imposes no house style, `tanka` decides what a document says and in what order.
 
 Both halves come from one cause. Over-communication and machine register are the same trade: the specific thing leaves, and volume arrives to cover the gap. A blockers list followed by "if these are not resolved I cannot proceed" and a paragraph closing with "underscoring its importance to the broader programme" are the same sentence in different clothes.
 
@@ -91,6 +91,6 @@ Both halves come from one cause. Over-communication and machine register are the
 
 ## Licence
 
-[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Copy it, adapt it, redistribute it, including commercially. Credit the source, and licence your version under the same terms.
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Copy it, adapt it, redistribute it, including commercially. Credit Alex Hender and link the licence. You are not obliged to licence your version under the same terms.
 
-The share-alike term is inherited rather than chosen. The register catalogue is adapted from Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), which is CC BY-SA, so the whole skill carries that licence.
+Original work throughout, which is what makes the permissive licence defensible. The share-alike material sits in the companion skill [human-voice](https://github.com/Abundant-Kindling/human-voice), which is [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) because it is adapted from Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing). The two are separate repos so that the share-alike obligation stays where it belongs. Redistribute them combined and the combined work carries CC BY-SA.

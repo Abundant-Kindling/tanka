@@ -1,12 +1,12 @@
 {
   "name": "tanka",
-  "description": "Cut a long document to what a reader needs, put a five-line summary on top they can act on, and strip the signatures of machine-written prose. Kills over-communication: restatement, implied consequences spelled out, background before the ask. Carries the register pass too: AI tells, house style, Australian English.",
+  "description": "Cut a long document to what a reader needs, put a five-line summary on top they can act on, and strip the signatures of machine-written prose. Kills over-communication: restatement, implied consequences spelled out, background before the ask. Carries the house-style register pass too: Australian English, sentence case, no em dashes, plain verbs. Pairs with the human-voice skill for the full machine-tells catalogue.",
   "version": "0.2.0",
   "author": {
     "name": "Alex Hender"
   },
-  "homepage": "https://github.com/theclockworkcloud/tanka",
-  "license": "CC-BY-SA-4.0",
+  "homepage": "https://github.com/Abundant-Kindling/tanka",
+  "license": "CC-BY-4.0",
   "keywords": [
     "writing",
     "editing",

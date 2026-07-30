@@ -329,9 +329,9 @@ So the test is the same test:
 
 **Does this sentence tell the reader something they did not know, or does it tell them how to feel about something they already read?**
 
-The catalogue lives in **[references/machine-tells.md](references/machine-tells.md)**. Read it when running a register pass, when a draft reads wrong and nobody can name why, or when asked whether something looks machine-written. It covers content tells (inflated significance, participle analysis, vague attribution, speculation dressed as sourcing), language tells (the vocabulary sample, the copulative dodge, negative parallelism, the rule of three), formatting tells, residue tells that are conclusive on sight, and a list of things that are wrongly flagged and are not tells at all.
+The full catalogue of machine tells is a separate skill, **[human-voice](https://github.com/Abundant-Kindling/human-voice)**. Install it alongside this one and invoke it when running a register pass, when a draft reads wrong and nobody can name why, or when asked whether something looks machine-written. It is voice-neutral: it removes the tells and imposes no house style, which is why the two are separate skills rather than one. Tanka decides what a document says and in what order, then hands the sentence-level pass to it.
 
-Six rules are load-bearing enough to sit here rather than behind the pointer:
+Without `human-voice` installed, run the six rules below. They are the house-style layer and they are load-bearing on their own:
 
 - **Australian English, British diction.** Colour, organisation, behaviour, recognise. Hold it throughout, including headings, captions and table cells. Code identifiers keep their own language's conventions
 - **Sentence case headings.** Not Title Case
@@ -418,7 +418,7 @@ Run over a finished pass:
 15. Every "serves as" back to "is", every "boasts" back to "has"?
 16. Every unnamed authority named, or the claim owned? No "experts suggest"
 17. Search for residue: `oaicite`, `contentReference`, `utm_source=`, `[Your Name]`, `XX-XX`
-18. For a full register pass, work [references/machine-tells.md](references/machine-tells.md) rather than these six lines
+18. For a full register pass, invoke the `human-voice` skill rather than stopping at these six lines
 
 **Before it goes**
 
@@ -429,6 +429,6 @@ Run over a finished pass:
 
 ## Licence
 
-Copyright Alex Hender. Released under **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)**. Copy it, adapt it, redistribute it, including commercially. Credit the source, and licence your version under the same terms.
+Copyright Alex Hender. Released under **[Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)**. Copy it, adapt it, redistribute it, including commercially. Credit the source. No obligation to licence your version under the same terms.
 
-The share-alike term is inherited. The register material in `references/machine-tells.md` is adapted from Wikipedia's *[Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)*, which is CC BY-SA, so the whole skill carries that licence. Attribution and the contributor history are recorded in that file.
+This skill is original work. The share-alike material lives in `human-voice`, which is a separate skill under CC BY-SA 4.0 because it is adapted from Wikipedia's *[Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)*. Keeping the two apart is what lets this one stay permissive. Combining them in a redistributed work would pull the result under share-alike.
