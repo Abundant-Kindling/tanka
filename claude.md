@@ -48,8 +48,14 @@ Layer 3 loses nothing, which is what makes the treatment safe on contracts, cost
 .claude-plugin/
   plugin.json          version lives here, bump on release
   marketplace.json     single-plugin marketplace, source "./"
+.github/workflows/
+  em-dash-check.yml    CI half of the em dash ban, runs test + scan on push and PR
 skills/tanka/
   SKILL.md             the deliverable, and now the whole skill
+hooks/
+  em-dash-check.js     fails on U+2014 in tracked *.md, self-contained
+  em-dash-check.test.js
+  install-hooks.sh     writes .git/hooks/pre-commit, run once per clone
 examples/              two worked pairs, deny-by-default in .gitignore
 rollout-announcement.md  the team comm, drafted and unsent
 build.sh               stages skill + LICENSE into dist/tanka.zip
@@ -148,7 +154,7 @@ If one is ever built, do not solve it by copying a skill into dotfiles as a real
 
 ## Conventions
 
-- **No em dashes.** Anywhere. Skill text, README, manifests, examples, commit messages, PR text. Ruled 24 Jul 2026. The skill states the rule itself, under Register in `SKILL.md`, so it depends on no other skill being installed
+- **No em dashes.** Anywhere. Skill text, README, manifests, examples, commit messages, PR text. Ruled 24 Jul 2026. The skill states the rule itself, under Register in `SKILL.md`, so it depends on no other skill being installed. **Enforced since 10 Aug 2026** on tracked markdown by `hooks/em-dash-check.js`: pre-commit via `hooks/install-hooks.sh` (once per clone) and CI via `.github/workflows/em-dash-check.yml`. Allowed by the check: the sign-off token, and quoted specimens inside a blockquote. Code and manifests stay covered by review, not the hook
 - Australian English, British diction
 - Dates DD Mon YYYY
 - Sentence case headings
