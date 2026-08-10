@@ -1,0 +1,22 @@
+# The push-time half of the em dash ban. The pre-commit hook is per-clone and
+# opt-in (hooks/install-hooks.sh); this job catches whatever a hookless clone
+# lets through.
+name: em-dash-check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  em-dash-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Unit and integration tests
+        run: node hooks/em-dash-check.test.js
+      - name: Scan tracked markdown
+        run: node hooks/em-dash-check.js
